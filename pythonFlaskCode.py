@@ -9,22 +9,26 @@ from email.mime.text import MIMEText
 from apscheduler.schedulers.background import BackgroundScheduler
 
 
+# Secret key for session management
 app = Flask(__name__)
-app.secret_key = "hello"  # Secret key for session management
+app.secret_key = "your_secret_key"
+
+
 
 # MySQL Database connection
 db = pymysql.connect(
-    host="127.0.0.1",
-    user="root",
-    password="909969@dady17",
-    database="mydb"
+    host="host_id",
+    user="user",
+    password="your_password",
+    database="your_db"
 )
 
+
 # Configure Flask-Mail
-app.config['MAIL_SERVER'] = 'smtp.gmail.com'  # Mail server
+app.config['MAIL_SERVER'] = 'smtp.gmail.com'
 app.config['MAIL_PORT'] = 587  # Mail port
-app.config['MAIL_USERNAME'] = 'praneethapuppet1@gmail.com'  # Your email
-app.config['MAIL_PASSWORD'] = 'yvss zfcy oghg jkln'  # Your email password
+app.config['MAIL_USERNAME'] = 'yourEmail@gmail.com'
+app.config['MAIL_PASSWORD'] = 'your_app_password'
 app.config['MAIL_USE_TLS'] = True
 app.config['MAIL_USE_SSL'] = False
 
@@ -35,7 +39,7 @@ mail = Mail(app)
 def index():
     return render_template('home.html')
 
-# Route for registration page
+# Route for member_registration page
 @app.route('/register', methods=['GET', 'POST'])
 def register():
     if request.method == 'POST':
@@ -60,11 +64,38 @@ def register():
 
     return render_template('register.html')
 
+
+#Route for member_login page
+@app.route('/login', methods=['POST', 'GET'])
+def login():
+    if request.method == 'POST':
+        email = request.form['email']
+        user_valid, user = validate_user(email)
+        
+        if not user_valid:
+            flash("User not found. Please register.")
+            return redirect(url_for('register'))
+        
+        payment_valid = validate_payment(email)
+        if not payment_valid:
+            flash("Payment validation failed. Please update your payment information.")
+            return redirect(url_for('membership'))
+        assign_personal_trainer(user[0])  # Access first item in tuple (user_id)
+        
+        # Set session to track logged-in user
+        session['logged_in'] = True
+        session['user_email'] = email
+        session['user_id'] = user[0]  # Access first item in tuple (user_id)
+        return redirect(url_for('dashboard'))
+    
+    return render_template('login.html')
+
+#validating user while logging in
 def validate_user(email):
     db = None
     cursor = None
     try:
-        db = pymysql.connect(host="127.0.0.1", user="root", password="909969@dady17", database="mydb")
+        db = pymysql.connect(host="host_id", user="user", password="your_password", database="your_db_name")
         cursor = db.cursor()
 
         cursor.execute("SELECT * FROM user WHERE email = %s", (email,))
@@ -82,12 +113,12 @@ def validate_user(email):
             cursor.close()
         if db:
             db.close()
-            
+#validating payment of user
 def validate_payment(email):
     db = None
     cursor = None
     try:
-        db = pymysql.connect(host="127.0.0.1", user="root", password="909969@dady17", database="mydb")
+        db = pymysql.connect(host="host_id", user="user", password="your_password", database="your_db_name")
         cursor = db.cursor()
 
         cursor.execute("SELECT * FROM payments WHERE email = %s AND validation = 'yes'", (email,))
@@ -103,13 +134,13 @@ def validate_payment(email):
         if db:
             db.close()
 
-
+# assaign a personal_trainer for the meber only once after logging in
 def assign_personal_trainer(user_id):
     connection = None
     cursor = None
     try:
         # Establish the database connection
-        connection = pymysql.connect(host="127.0.0.1", user="root", password="909969@dady17", database="mydb")
+        connection = pymysql.connect(host="host_id", user="user", password="your_password", database="your_db_name")
         cursor = connection.cursor()
 
         # Retrieve user's training type from the payments table using the email from the user_id
@@ -176,31 +207,17 @@ def assign_personal_trainer(user_id):
             connection.close()  # Close the database connection
 
 
+#Route for member_dashboard after logged in
+@app.route('/dashboard')
+def dashboard():
+    if 'logged_in' in session and session['logged_in']:
+        return render_template('dashboard.html')
+    else:
+        flash("Please log in to access the dashboard.")
+        return redirect(url_for('login'))
 
-@app.route('/login', methods=['POST', 'GET'])
-def login():
-    if request.method == 'POST':
-        email = request.form['email']
-        user_valid, user = validate_user(email)
-        
-        if not user_valid:
-            flash("User not found. Please register.")
-            return redirect(url_for('register'))
-        
-        payment_valid = validate_payment(email)
-        if not payment_valid:
-            flash("Payment validation failed. Please update your payment information.")
-            return redirect(url_for('membership'))
-        assign_personal_trainer(user[0])  # Access first item in tuple (user_id)
-        
-        # Set session to track logged-in user
-        session['logged_in'] = True
-        session['user_email'] = email
-        session['user_id'] = user[0]  # Access first item in tuple (user_id)
-        return redirect(url_for('dashboard'))
-    
-    return render_template('login.html')
 
+#Route for trainer_details page
 @app.route('/trainer_details')
 def trainer_details():
     user_id = session.get('user_id')
@@ -233,15 +250,6 @@ def trainer_details():
 
 
 
-@app.route('/dashboard')
-def dashboard():
-    if 'logged_in' in session and session['logged_in']:
-        return render_template('dashboard.html')
-    else:
-        flash("Please log in to access the dashboard.")
-        return redirect(url_for('login'))
-
-
 # Route for "Forgot Password" page
 @app.route('/forgot_password', methods=['GET', 'POST'])
 def forgot_password():
@@ -259,7 +267,7 @@ def forgot_password():
             db.commit()
 
             reset_link = f"http://127.0.0.1:5000/reset_password/{token}"
-            msg = Message("Password Reset Request", sender="praneethapuppet1@gmail.com", recipients=[email])
+            msg = Message("Password Reset Request", sender="sender_email@gmail.com", recipients=[email])
             msg.body = f"Please click the following link to reset your password: {reset_link}"
             mail.send(msg)
 
@@ -296,16 +304,13 @@ def reset_password(token):
 
 
 
-
-@app.route('/feedback_thank_you')
-def feedback_thank_you():
-    return "Thank you for your feedback!"
-
+#Route for Feedback page
 @app.route('/feedback')
 def feedback():
     if 'logged_in' not in session and session['logged_in']:
         return redirect('/login')
     return render_template('feedback.html')
+
 
 @app.route('/submit-feedback', methods=['POST'])
 def submit_feedback():
@@ -338,74 +343,128 @@ def submit_feedback():
 
     return redirect(url_for('feedback_thank_you'))
 
+#Route for feedback thank you page
+@app.route('/feedback_thank_you')
+def feedback_thank_you():
+    return "Thank you for your feedback!"
 
 
+
+#Route for nutrition page
 @app.route('/nutrition')
 def nutrition():
     if 'logged_in' not in session and session['logged_in']:
         return redirect('/login')
     return render_template('nutrition_main.html')
 
+#Route for Strength Training
 @app.route('/nutrition_plan1')
 def nutrition_plan1():
     if 'logged_in' not in session and session['logged_in']:
         return redirect('/login')
     return render_template('nutrition_plan1.html')
 
+# Route for Cardiovascular Training
 @app.route('/nutrition_plan2')
 def nutrition_plan2():
     if 'logged_in' not in session and session['logged_in']:
         return redirect('/login')
     return render_template('nutrition_plan2.html')
 
+
+# Route for Bodybuilding Training
 @app.route('/nutrition_plan3')
 def nutrition_plan3():
     if 'logged_in' not in session and session['logged_in']:
         return redirect('/login')
     return render_template('nutrition_plan3.html')
 
+
+# Route for CrossFit Training
 @app.route('/nutrition_plan4')
 def nutrition_plan4():
     if 'logged_in' not in session and session['logged_in']:
         return redirect('/login')
     return render_template('nutrition_plan4.html')
 
+# Route for Olympic Weightlifting
 @app.route('/nutrition_plan5')
 def nutrition_plan5():
     if 'logged_in' not in session and session['logged_in']:
         return redirect('/login')
     return render_template('nutrition_plan5.html')
 
+# Route for Circuit Training
 @app.route('/nutrition_plan6')
 def nutrition_plan6():
     if 'logged_in' not in session and session['logged_in']:
         return redirect('/login')
     return render_template('nutrition_plan6.html')
 
+# Route for Powerlifting
 @app.route('/nutrition_plan7')
 def nutrition_plan7():
     if 'logged_in' not in session and session['logged_in']:
         return redirect('/login')
     return render_template('nutrition_plan7.html')
 
+# Route for workout_types
 @app.route('/workout_plans')
 def workout_plans():
     if 'logged_in' not in session and session['logged_in']:
         return redirect('/login')
     return render_template('workout_plans.html')
 
+# Route for Strength Training
 @app.route('/training-type1')
 def training_type1():
     if 'logged_in' not in session and session['logged_in']:
         return redirect('/login')
     return render_template('training1.html')
 
+# Route for Cardiovascular Training
 @app.route('/training-type2')
 def training_type2():
     if 'logged_in' not in session and session['logged_in']:
         return redirect('/login')
     return render_template('training2.html')
 
+# Route for Bodybuilding Training
+@app.route('/training-type3')
+def training_type3():
+    if 'logged_in' not in session and session['logged_in']:
+        return redirect('/login')
+    return render_template('training3.html')
+
+# Route for CrossFit Training
+@app.route('/training-type4')
+def training_type4():
+    if 'logged_in' not in session and session['logged_in']:
+        return redirect('/login')
+    return render_template('training4.html')
+
+# Route for Olympic Weightlifting
+@app.route('/training-type5')
+def training_type5():
+    if 'logged_in' not in session and session['logged_in']:
+        return redirect('/login')
+    return render_template('training5.html')
+
+# Route for Circuit Training
+@app.route('/training-type6')
+def training_type6():
+    if 'logged_in' not in session and session['logged_in']:
+        return redirect('/login')
+    return render_template('training6.html')
+
+# Route for Powerlifting
+@app.route('/training-type7')
+def training_type7():
+    if 'logged_in' not in session and session['logged_in']:
+        return redirect('/login')
+    return render_template('training7.html')
+
+#Routes for sub pages for the above training types
 @app.route('/understand_cardio')
 def understand_cardio():
     if 'logged_in' not in session and session['logged_in']:
@@ -436,11 +495,7 @@ def cardio_with_other():
         return redirect('/login')
     return render_template('cardio_with_other.html')
 
-@app.route('/training-type3')
-def training_type3():
-    if 'logged_in' not in session and session['logged_in']:
-        return redirect('/login')
-    return render_template('training3.html')
+
 
 @app.route('/bodybuilding_goals')
 def bodybuilding_goals():
@@ -494,11 +549,6 @@ def progress_tracking():
     return render_template('progress_tracking.html')
 
 
-@app.route('/training-type4')
-def training_type4():
-    if 'logged_in' not in session and session['logged_in']:
-        return redirect('/login')
-    return render_template('training4.html')
 
 @app.route('/understand_crossfit')
 def understand_crossfit():
@@ -530,12 +580,6 @@ def progress_tracking4():
         return redirect('/login')
     return render_template('progress_tracking4.html')
 
-@app.route('/training-type5')
-def training_type5():
-    if 'logged_in' not in session and session['logged_in']:
-        return redirect('/login')
-    return render_template('training5.html')
-
 @app.route('/understand_olympic')
 def understand_olympic():
     if 'logged_in' not in session and session['logged_in']:
@@ -565,13 +609,6 @@ def safety_progression():
     if 'logged_in' not in session and session['logged_in']:
         return redirect('/login')
     return render_template('safety_progression.html')
-
-
-@app.route('/training-type6')
-def training_type6():
-    if 'logged_in' not in session and session['logged_in']:
-        return redirect('/login')
-    return render_template('training6.html')
 
 @app.route('/definition_purpose6')
 def definition_purpose6():
@@ -603,11 +640,7 @@ def circuit_tips():
         return redirect('/login')
     return render_template('circuit_tips.html')
 
-@app.route('/training-type7')
-def training_type7():
-    if 'logged_in' not in session and session['logged_in']:
-        return redirect('/login')
-    return render_template('training7.html')
+
 
 @app.route('/definition_purpose7')
 def definition_purpose7():
@@ -639,7 +672,6 @@ def beginner_tips():
         return redirect('/login')
     return render_template('beginner_tips.html')
 
-
 @app.route('/benefits')
 def benefits():
     if 'logged_in' not in session and session['logged_in']:
@@ -670,15 +702,15 @@ def techniques():
         return redirect('/login')
     return render_template('techniques.html')
 
+
+# Route for member's weekly progress tracking page
 @app.route('/weekly_progress_tracking')
 def weekly_progress_tracking():
     if 'logged_in' not in session and session['logged_in']:
         return redirect('/login')
     return render_template('weekly_progress_tracking.html')
 
-
-
-
+#Route for checking email while taking membership so that the member is registered or not
 @app.route('/check_email', methods=['GET', 'POST'])
 def check_email():
     if request.method == 'POST':
@@ -709,7 +741,7 @@ def check_email():
 
     return render_template('check_email.html')
 
-
+# Route for membership_plans page
 @app.route('/membership')
 def membership():
     user_email = session.get('user_email')
@@ -720,10 +752,12 @@ def membership():
         flash("Please provide your email to access this page.")
         return redirect('/check_email')
 
+# Route for upi_payment page
 @app.route('/upi_payment')
 def upi_payment():
     return render_template('upi_payment.html')
 
+# Route to handle upi_payments
 @app.route('/handle_upi_payment', methods=['GET', 'POST'])
 def handle_upi_payment():
     if request.method == 'POST':
@@ -756,8 +790,128 @@ def handle_upi_payment():
     
     return render_template('upi_payment.html')
 
+# Route for member community Features page
+@app.route('/community_features')
+def community_features():
+    if 'logged_in' not in session and session['logged_in']:
+        return redirect('/login')
+    return render_template('community_features.html')
+
+# Route for member engage page
+@app.route('/engage')
+def engage():
+    if 'logged_in' not in session and session['logged_in']:
+        return redirect('/login')
+    return render_template('engage.html')
+
+# Route for member profile
+@app.route('/personal_info')
+def personal_info():
+    print("Session Data: ", session)
+    if 'logged_in' not in session or not session['logged_in']:
+        flash("Session expired. Please log in again.")
+        return redirect('/login')
+    
+    user_id = session.get('user_id')
+    if not user_id:
+        flash("Session expired. Please log in again.")
+        return redirect('/login')
+    
+    user = fetch_user_from_database(user_id)
+    if not user:
+        flash("User not found. Please log in again.")
+        return redirect('/login')
+    
+    user_email = user[2]  # Assuming email is the third item in the user tuple
+    payments = fetch_payments_from_database(user_email)
+    
+    return render_template('personal_info.html', user=user, payments=payments)
 
 
+def fetch_user_from_database(user_id):
+    try:
+        cur = db.cursor()
+        cur.execute('SELECT id, name, email, trainer_id FROM user WHERE id = %s', (user_id,))
+        user = cur.fetchone()
+        return user
+    except pymysql.Error as e:
+        flash("An error occurred while retrieving user information. Please try again later.")
+        return None
+    finally:
+        cur.close()
+
+def fetch_payments_from_database(email):
+    try:
+        cur = db.cursor()
+        cur.execute('''
+            SELECT id, training_type, tier, amount, upi_id, email, payment_date, validation
+            FROM payments
+            WHERE email = %s
+            ORDER BY payment_date DESC
+        ''', (email,))
+        payments = cur.fetchall()
+        return payments
+    except pymysql.Error as e:
+        flash("An error occurred while retrieving payment information. Please try again later.")
+        return []
+    finally:
+        cur.close()
+
+
+# Route for member edit page
+@app.route('/user_edit_profile')
+def user_edit_profile():
+    try:
+        user_id = session.get('user_id')  # Fetch user_id from session
+        if not user_id:
+            flash('User not logged in!')
+            return redirect(url_for('login'))
+        
+        connection = db  # Initialize connection
+        cursor = connection.cursor(pymysql.cursors.DictCursor)
+        
+        cursor.execute("SELECT * FROM user WHERE id=%s", (user_id,))
+        user = cursor.fetchone()
+        
+        if not user:
+            flash('User not found!')
+            return redirect(url_for('login'))
+        
+        return render_template('user_edit_profile.html', user=user)
+    
+    except pymysql.err.InterfaceError as e:
+        print(f"Database connection error: {e}")
+        flash("A database error occurred. Please try again.")
+        return redirect(url_for('login'))
+    
+# Route for member update page
+@app.route('/update_profile', methods=['POST'])
+def update_profile():
+    user_id = request.form['user_id']
+    name = request.form['name']
+    email = request.form['email']
+    password = request.form['password']  
+    
+    try:
+        with db.cursor() as cursor:
+            if password:
+                hashed_password = generate_password_hash(password)
+                cursor.execute("UPDATE user SET name=%s, email=%s, password=%s WHERE id=%s", 
+                               (name, email, hashed_password, user_id))
+            else:
+                cursor.execute("UPDATE user SET name=%s, email=%s WHERE id=%s", 
+                               (name, email, user_id))
+            
+            db.commit()
+    
+    except pymysql.err.InterfaceError as e:
+        print(f"Database connection error: {e}")
+        flash("Failed to update profile. Please try again.")
+    
+    return redirect(url_for('personal_info'))
+
+
+#Route for member logout
 @app.route('/logout')
 def logout():
     session.clear()
@@ -766,12 +920,12 @@ def logout():
 
 
 
-
+#function for sending email remainders for members 
 def send_workout_reminder(email, name):
     try:
         # Email configuration
-        sender_email = 'praneethapuppet1@gmail.com'
-        sender_password = 'yvss zfcy oghg jkln'
+        sender_email = 'sender_email@gmail.com'
+        sender_password = 'your_app_password'
         receiver_email = email
 
         # Create message
@@ -781,7 +935,7 @@ def send_workout_reminder(email, name):
         msg['Subject'] = 'Workout Reminder'
 
         # Email body
-        body = f"Hi {name}, it's time to get ready for your workout!"
+        body = f"Hi {name}, it's time to get ready for your workout , Hurry Up!"
         msg.attach(MIMEText(body, 'plain'))
 
         # Send email
@@ -813,120 +967,10 @@ def workout_reminder_job():
     scheduler.add_job(workout_reminder_job, 'cron', hour=23)
     scheduler.start()
 
-@app.route('/community_features')
-def community_features():
-    if 'logged_in' not in session and session['logged_in']:
-        return redirect('/login')
-    return render_template('community_features.html')
 
-@app.route('/engage')
-def engage():
-    if 'logged_in' not in session and session['logged_in']:
-        return redirect('/login')
-    return render_template('engage.html')
 
-@app.route('/personal_info')
-def personal_info():
-    print("Session Data: ", session)
-    if 'logged_in' not in session or not session['logged_in']:
-        flash("Session expired. Please log in again.")
-        return redirect('/login')
-    
-    user_id = session.get('user_id')
-    if not user_id:
-        flash("Session expired. Please log in again.")
-        return redirect('/login')
-    
-    user = fetch_user_from_database(user_id)
-    if not user:
-        flash("User not found. Please log in again.")
-        return redirect('/login')
-    
-    user_email = user[2]  # Assuming email is the third item in the user tuple
-    payments = fetch_payments_from_database(user_email)
-    
-    return render_template('personal_info.html', user=user, payments=payments)
 
-def fetch_user_from_database(user_id):
-    try:
-        cur = db.cursor()
-        cur.execute('SELECT id, name, email, trainer_id FROM user WHERE id = %s', (user_id,))
-        user = cur.fetchone()
-        return user
-    except pymysql.Error as e:
-        flash("An error occurred while retrieving user information. Please try again later.")
-        return None
-    finally:
-        cur.close()
-
-def fetch_payments_from_database(email):
-    try:
-        cur = db.cursor()
-        cur.execute('''
-            SELECT id, training_type, tier, amount, upi_id, email, payment_date, validation
-            FROM payments
-            WHERE email = %s
-            ORDER BY payment_date DESC
-        ''', (email,))
-        payments = cur.fetchall()
-        return payments
-    except pymysql.Error as e:
-        flash("An error occurred while retrieving payment information. Please try again later.")
-        return []
-    finally:
-        cur.close()
-
-@app.route('/user_edit_profile')
-def user_edit_profile():
-    try:
-        user_id = session.get('user_id')  # Fetch user_id from session
-        if not user_id:
-            flash('User not logged in!')
-            return redirect(url_for('login'))
-        
-        connection = db  # Initialize connection
-        cursor = connection.cursor(pymysql.cursors.DictCursor)
-        
-        cursor.execute("SELECT * FROM user WHERE id=%s", (user_id,))
-        user = cursor.fetchone()
-        
-        if not user:
-            flash('User not found!')
-            return redirect(url_for('login'))
-        
-        return render_template('user_edit_profile.html', user=user)
-    
-    except pymysql.err.InterfaceError as e:
-        print(f"Database connection error: {e}")
-        flash("A database error occurred. Please try again.")
-        return redirect(url_for('login'))
-    
-
-@app.route('/update_profile', methods=['POST'])
-def update_profile():
-    user_id = request.form['user_id']
-    name = request.form['name']
-    email = request.form['email']
-    password = request.form['password']  
-    
-    try:
-        with db.cursor() as cursor:
-            if password:
-                hashed_password = generate_password_hash(password)
-                cursor.execute("UPDATE user SET name=%s, email=%s, password=%s WHERE id=%s", 
-                               (name, email, hashed_password, user_id))
-            else:
-                cursor.execute("UPDATE user SET name=%s, email=%s WHERE id=%s", 
-                               (name, email, user_id))
-            
-            db.commit()
-    
-    except pymysql.err.InterfaceError as e:
-        print(f"Database connection error: {e}")
-        flash("Failed to update profile. Please try again.")
-    
-    return redirect(url_for('personal_info'))
-
+# Route stores the member progress
 @app.route('/submit-progress', methods=['POST'])
 def submit_progress():
     user_id = session.get('user_id')  # Assuming you store user ID in session after login
@@ -963,7 +1007,7 @@ def submit_progress():
     flash('Progress submitted successfully')
     return redirect(url_for('dashboard'))  # Redirect to an appropriate page after submission
 
-
+# Route for trainer progress where member weekly progree details are stored
 @app.route('/trainer-progress')
 def trainer_progress():
     trainer_id = session.get('trainer_id')  # Get trainer ID from session
@@ -982,7 +1026,7 @@ def trainer_progress():
 
     return render_template('trainer_progress.html', progress_entries=progress_entries)
 
-
+# Route for trainer profile
 @app.route('/trainer-profile')
 def trainer_profile():
     trainer_id = session.get('trainer_id')  # Get trainer ID from session
@@ -1010,7 +1054,7 @@ def trainer_profile():
                            trainer_certifications=trainer_details['certifications'])
 
 
-
+#Route for trainer Registration page
 @app.route('/trainer_register', methods=['GET', 'POST'])
 def trainer_register():
     if request.method == 'POST':
@@ -1195,7 +1239,7 @@ def trainer_dashboard():
                            progress_entries=progress_entries)
 
 
-# Route for "Forgot Password" page
+# Route for trainer "Forgot Password" page
 @app.route('/forgot_password2', methods=['GET', 'POST'])
 def forgot_password2():
     if request.method == 'POST':
@@ -1222,7 +1266,7 @@ def forgot_password2():
 
     return render_template('forgot_password2.html')
 
-# Route for password reset form
+# Route for trainer password reset form
 @app.route('/reset_password2/<token>', methods=['GET', 'POST'])
 def reset_password2(token):
     if request.method == 'POST':
@@ -1246,6 +1290,7 @@ def reset_password2(token):
 
     return render_template('reset_password2.html', token=token)
 
+#Route for trainer logout page
 @app.route('/trainer_logout')
 def trainer_logout():
     session.clear()
@@ -1253,14 +1298,17 @@ def trainer_logout():
    
     return redirect(url_for('trainer_login'))
 
+# Route for blog page
 @app.route('/blog')
 def blog():
     return render_template('blog.html')
 
+# Route for contactUs page
 @app.route('/contactUs')
 def contactUs():
     return render_template('contactUs.html')
 
+# Route for aboutUs page
 @app.route('/aboutUs')
 def aboutUs():
     return render_template('aboutUs.html')
