@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gym Page</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: linear-gradient(to top, rgba(176, 170, 170, 0.5), rgba(176, 170, 170, 0.5)), url("{{ url_for('static', filename='images/gym_home - Copy.png') }}");
+            background-size: cover;
+            background-position: top;
+            padding-top: 125px;
+        }
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 5px;
+            background: linear-gradient(90deg, #00aaff, #ff5500); /* Blue to orange gradient */
+            color: #fff;
+            z-index: 1000; /* Ensures the header is above other content */
+            box-sizing: border-box; /* Includes padding in width calculation */
+        }
+
+        nav {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap; /* Allows items to wrap onto the next line if needed */
+            align-items: center;
+        }
+
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s ease;
+            white-space: nowrap; /* Prevents text from wrapping in navigation links */
+        }
+
+        nav a:hover {
+            color: #ccc;
+        }
+
+
+        .main-content {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+        .text-content {
+            max-width: 60%;
+            text-align: center;
+        }
+        .text-content h1 {
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+        .text-content blockquote {
+            font-size: 18px;
+            font-style: italic;
+            padding-left: 20px;
+            margin: 0 0 20px 0;
+        }
+        .button-container {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+        }
+        .button {
+            background-color: #00aaff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        .button:hover {
+            background-color: #0077cc;
+        }
+        .image-content {
+            max-width: 35%;
+        }
+        .image-content img {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+        }
+        .logo {
+            width: 50px; /* Adjust width to fit your design */
+            height: 50px; /* Maintain aspect ratio */
+            background: transparent;
+            border: none; /* Remove any border */
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+    </style>
+</head>
+<body>
+    <header>
+        <img src="{{ url_for('static', filename='images/gym_logo1.png') }}" alt="Gym Logo" class="logo">
+        <nav>
+            <a href="/aboutUs">About Us</a>
+            <a href="/contactUs">Contact Us</a>
+            <a href="/blog">Blog</a>
+        </nav>
+    </header>
+
+    <section class="main-content">
+        <div class="text-content">
+            <h1>Welcome to SPN Gym</h1>
+            <blockquote>
+                Fitness is like a relationship. You can’t cheat and expect it to work.😉
+            </blockquote>
+            <div class="button-container">
+                <a href="/register" class="button">Member</a>
+                <a href="/trainer_register" class="button">Trainer</a>
+                <a href="/check_email" class="button">Want Membership?</a>
+            </div>            
+        </div>
+    </section>
+</body>
+</html>

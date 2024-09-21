@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Monitoring & Adjusting Your Training</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, #f2f2f2, #e0e0e0);
+            overflow-x: hidden;
+            color: #333;
+            padding-top: 60px;
+        }
+
+        header {
+            background: linear-gradient(135deg, #ff9800, #ff5722);
+            color: white;
+            padding: 20px;
+            text-align: center;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            transition: top 0.3s ease;
+            z-index: 1000;
+        }
+
+        h1 {
+            margin: 0;
+            font-size: 2em;
+            font-weight: bold;
+        }
+
+        main {
+            padding: 20px;
+        }
+
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+
+        .grid-item {
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            transition: transform 0.3s, box-shadow 0.3s, background-color 0.3s, border-left 0.3s;
+            animation: fadeIn 1.5s;
+            border-left: 5px solid transparent;
+        }
+
+        .grid-item:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+            background-color: #f5f5f5;
+            border-left: 5px solid #ff9800;
+        }
+
+        footer {
+            background: linear-gradient(135deg, #ff9800, #ff5722);
+            color: white;
+            text-align: center;
+            padding: 20px;
+            position: relative;
+            margin-top: 20px;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .btn-back {
+            margin-top: 2rem;
+            text-align: center;
+            padding: 10px 30px;
+            background-color: #ff9800;
+            color: #fff;
+            border: none;
+            border-radius: 25px;
+            display: inline-block;
+            text-decoration: none;
+            transition: background-color 0.3s ease;
+        }
+
+        .btn-back:hover {
+            background-color: #ff5722;
+            text-decoration: none;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <header id="header">
+        <h1>Monitoring & Adjusting Your Training</h1>
+    </header>
+    <main>
+        <section class="grid-container">
+            <div class="grid-item">
+                <h2>1. Heart Rate Monitoring</h2>
+                <p>Tracking your heart rate during cardiovascular training is essential to ensure you're working at the right intensity. Use a fitness tracker or heart rate monitor to check your pulse and make sure you stay within your target heart rate zone.</p>
+                <p><strong>Target Heart Rate Zone:</strong> Typically, 50-85% of your maximum heart rate (MHR). To calculate your MHR, subtract your age from 220.</p>
+            </div>
+
+            <div class="grid-item">
+                <h2>2. Progress Tracking</h2>
+                <p>Keep a detailed log of your cardio workouts to monitor your progress. Track the duration, intensity (e.g., speed or resistance level), and perceived exertion for each session to see how your endurance and fitness levels improve over time.</p>
+                <p><strong>Tools:</strong> Apps like Strava or fitness journals can help with regular tracking and comparison.</p>
+            </div>
+
+            <div class="grid-item">
+                <h2>3. Adjusting Intensity</h2>
+                <p>As you get fitter, you’ll need to increase the intensity or duration of your workouts. Consider adding intervals or incline changes for variety.</p>
+                <p><strong>Tip:</strong> Gradually increase workout intensity by 10% each week to avoid injury while challenging your body.</p>
+            </div>
+
+            <div class="grid-item">
+                <h2>4. Incorporating Rest Days</h2>
+                <p>Rest is just as important as your workouts. Ensure you allow for proper recovery between intense cardio sessions. This helps prevent injury and promotes long-term improvements in endurance and performance.</p>
+                <p><strong>Recommended:</strong> Take 1-2 days of rest each week, especially after high-intensity sessions.</p>
+            </div>
+        </section>
+
+        <!-- Button to go back to the Cardiovascular Training Guide page -->
+        <div class="text-center">
+            <a href="/training-type2" class="btn-back">Back to Cardio Guide</a>
+        </div>
+    </main>
+</body>
+</html>

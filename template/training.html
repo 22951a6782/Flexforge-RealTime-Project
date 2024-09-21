@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Strength Training Guide</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, #f2f2f2, #e0e0e0);
+            color: #333;
+            overflow-x: hidden;
+            padding-top: 60px; /* Adjust based on header height */
+        }
+
+        header {
+            background: linear-gradient(135deg, #00aaff, #0044ff);
+            color: white;
+            padding: 20px;
+            text-align: center;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            transition: top 0.3s ease;
+            z-index: 1000;
+        }
+
+        h1 {
+            margin: 0;
+        }
+
+        .container {
+            padding: 20px;
+        }
+
+        .section {
+            margin-bottom: 40px;
+            padding: 20px;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            animation: fadeInUp 1.5s;
+        }
+
+        h2 {
+            margin-top: 0;
+            color: #0044ff;
+        }
+
+        .section ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .section ul li {
+            margin-bottom: 10px;
+            padding-left: 30px;
+            position: relative;
+            font-size: 1.1em;
+            transition: background 0.3s, color 0.3s;
+        }
+
+        .section ul li:hover {
+            background: #3d8fbb;
+            color: #f2f3f7;
+            border-radius: 8px;
+        }
+
+        .section ul li input[type="checkbox"] {
+            position: absolute;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            accent-color: #00aaff;
+            cursor: pointer;
+        }
+
+        footer {
+            background: linear-gradient(135deg, #00aaff, #0044ff);
+            color: white;
+            text-align: center;
+            padding: 20px;
+            position: relative;
+        }
+
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body>
+    <header id="header">
+        <h1>Strength Training Guide</h1>
+    </header>
+    <div class="container">
+        <div class="section">
+            <h2>1. Setting Goals</h2>
+            <ul>
+                <li><input type="checkbox"> <strong>Identify Objectives:</strong> Determine whether your goal is to increase muscle mass, improve endurance, or enhance overall strength.</li>
+                <li><input type="checkbox"> <strong>Specific Goals:</strong> Set specific, measurable, achievable, relevant, and time-bound (SMART) goals.</li>
+            </ul>
+        </div>
+        <div class="section">
+            <h2>2. Choosing the Right Program</h2>
+            <ul>
+                <li><input type="checkbox"> <strong>Beginner Programs:</strong> Focus on full-body workouts that target all major muscle groups 2-3 times per week.</li>
+                <li><input type="checkbox"> <strong>Intermediate/Advanced Programs:</strong> Use split routines to target specific muscle groups on different days (e.g., upper body one day, lower body the next).</li>
+            </ul>
+        </div>
+        <div class="section">
+            <h2>3. Warm-Up</h2>
+            <ul>
+                <li><input type="checkbox"> <strong>General Warm-Up:</strong> Engage in 5-10 minutes of light cardiovascular exercise (e.g., jogging, cycling).</li>
+                <li><input type="checkbox"> <strong>Dynamic Stretching:</strong> Perform dynamic stretches to prepare your muscles and joints for exercise.</li>
+            </ul>
+        </div>
+        <div class="section">
+            <h2>4. Exercise Selection</h2>
+            <ul>
+                <li><input type="checkbox"> <strong>Compound Exercises:</strong> Include exercises that work multiple muscle groups (e.g., squats, deadlifts, bench press).</li>
+                <li><input type="checkbox"> <strong>Isolation Exercises:</strong> Add exercises that target individual muscles (e.g., bicep curls, tricep extensions).</li>
+            </ul>
+        </div>
+        <div class="section">
+            <h2>5. Proper Form and Technique</h2>
+            <ul>
+                <li><input type="checkbox"> <strong>Learn the Basics:</strong> Understand proper form for each exercise to prevent injury and maximize effectiveness.</li>
+                <li><input type="checkbox"> <strong>Seek Instruction:</strong> Work with a trainer if you’re unsure about your technique.</li>
+            </ul>
+        </div>
+        <div class="section">
+            <h2>6. Progressive Overload</h2>
+            <ul>
+                <li><input type="checkbox"> <strong>Increase Weight:</strong> Gradually increase the weight you lift over time to challenge your muscles.</li>
+                <li><input type="checkbox"> <strong>Adjust Reps/Sets:</strong> Modify the number of repetitions and sets to continue progressing.</li>
+            </ul>
+        </div>
+        <div class="section">
+            <h2>7. Rest and Recovery</h2>
+            <ul>
+                <li><input type="checkbox"> <strong>Rest Between Sets:</strong> Allow 1-3 minutes of rest between sets depending on your goals.</li>
+                <li><input type="checkbox"> <strong>Rest Days:</strong> Incorporate rest days into your routine to allow muscles to recover and grow.</li>
+            </ul>
+        </div>
+        <div class="section">
+            <h2>8. Cool-Down</h2>
+            <ul>
+                <li><input type="checkbox"> <strong>Light Cardio:</strong> Perform 5-10 minutes of low-intensity cardio.</li>
+                <li><input type="checkbox"> <strong>Static Stretching:</strong> Stretch the muscles worked during your session to improve flexibility and reduce soreness.</li>
+            </ul>
+        </div>
+        <div class="section">
+            <h2>9. Nutrition</h2>
+            <ul>
+                <li><input type="checkbox"> <strong>Protein Intake:</strong> Ensure adequate protein intake to support muscle repair and growth (e.g., lean meats, dairy, legumes).</li>
+                <li><input type="checkbox"> <strong>Balanced Diet:</strong> Maintain a balanced diet with carbohydrates, fats, vitamins, and minerals.</li>
+            </ul>
+        </div>
+        <div class="section">
+            <h2>10. Hydration</h2>
+            <ul>
+                <li><input type="checkbox"> <strong>Drink Water:</strong> Stay hydrated before, during, and after your workout.</li>
+            </ul>
+        </div>
+        <div class="section">
+            <h2>11. Tracking Progress</h2>
+            <ul>
+                <li><input type="checkbox"> <strong>Record Workouts:</strong> Keep a log of the exercises, weights, sets, and reps to track progress and make adjustments.</li>
+                <li><input type="checkbox"> <strong>Assess Performance:</strong> Regularly assess your progress towards your goals and adjust your program as needed.</li>
+            </ul>
+        </div>
+        <div class="section">
+            <h2>12. Safety Considerations</h2>
+            <ul>
+                <li><input type="checkbox"> <strong>Use Proper Equipment:</strong> Ensure equipment is set up correctly and in good condition.</li>
+                <li><input type="checkbox"> <strong>Listen to Your Body:</strong> Avoid pushing through pain; adjust or stop exercises if you experience discomfort or pain.</li>
+            </ul>
+        </div>
+        <div class="section">
+            <h2>13. Consistency and Patience</h2>
+            <ul>
+                <li><input type="checkbox"> <strong>Stick with It:</strong> Consistent effort and patience are key to seeing results.</li>
+                <li><input type="checkbox"> <strong>Adjust as Needed:</strong> Be prepared to make adjustments to your program based on progress and feedback from your body.</li>
+            </ul>
+        </div>
+    </div>
+    <script>
+        let lastScrollTop = 0;
+        const header = document.getElementById('header');
+
+        window.addEventListener('scroll', function() {
+            let currentScroll = window.pageYOffset || document.documentElement.scrollTop;
+            if (currentScroll > lastScrollTop) {
+                // Scroll Down
+                header.style.top = "-60px"; // Hide header (adjust based on header height)
+            } else {
+                // Scroll Up
+                header.style.top = "0";
+            }
+            lastScrollTop = currentScroll <= 0 ? 0 : currentScroll; // For Mobile or negative scrolling
+        });
+    </script>
+</body>
+</html>

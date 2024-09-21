@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Olympic Weightlifting Guide</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet">
+    <style>
+        body {
+            background: linear-gradient(to right, #FF9800, #FF5722, #FFFFFF);
+            font-family: Arial, sans-serif;
+        }
+        .container { padding: 2rem; }
+        h1 { text-align: center; color: #FFFFFF; margin-bottom: 2rem; }
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+        .card {
+            background-color: #fff;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+        }
+        .card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
+        .card-title { font-size: 1.5rem; color: #FF9800; margin-bottom: 1rem; }
+        .card-content { color: #555; }
+        .btn-learn {
+            margin-top: 1.5rem;
+            display: block;
+            text-align: center;
+            padding: 10px 20px;
+            background-color: #FF9800;
+            color: white;
+            border-radius: 20px;
+            transition: background-color 0.3s ease;
+        }
+        .btn-learn:hover {
+            background-color: #ff5722;
+            text-decoration: none;
+            color: white;
+        }
+        .btn-back {
+            margin-top: 2rem;
+            text-align: center;
+            padding: 10px 30px;
+            background-color: #e67e22;
+            color: #fff;
+            border: none;
+            border-radius: 25px;
+            display: inline-block;
+            transition: background-color 0.3s ease;
+        }
+        .btn-back:hover {
+            background-color: white;
+            color: #e67e22;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Olympic Weightlifting Guide</h1>
+        <div class="grid-container">
+            <div class="card">
+                <div class="card-title">1. Understanding Olympic Weightlifting</div>
+                <div class="card-content">
+                    <p>Olympic weightlifting involves two main lifts: the snatch and the clean and jerk. It focuses on explosive power, technique, and strength.</p>
+                    <p><strong>Goals:</strong> Improve overall strength, power, speed, and coordination while enhancing athletic performance.</p>
+                </div>
+                <a href="/understand_olympic" class="btn-learn">Learn More</a>
+            </div>
+
+            <div class="card">
+                <div class="card-title">2. The Snatch</div>
+                <div class="card-content">
+                    <p><strong>Technique:</strong> Lift the barbell from the ground to overhead in one motion using strength, speed, and technique.</p>
+                    <p><strong>Steps:</strong> Setup, First Pull, Transition, Second Pull, Catch, and Stand Up.</p>
+                </div>
+                <a href="/snatch_technique" class="btn-learn">Learn More</a>
+            </div>
+
+            <div class="card">
+                <div class="card-title">3. The Clean and Jerk</div>
+                <div class="card-content">
+                    <p><strong>Technique:</strong> Lift the barbell to the shoulders (clean) and then press it overhead (jerk) in two distinct phases.</p>
+                    <p><strong>Steps:</strong> Setup, First Pull, Transition, Second Pull, Catch, and Drive.</p>
+                </div>
+                <a href="/clean_and_jerk" class="btn-learn">Learn More</a>
+            </div>
+
+            <div class="card">
+                <div class="card-title">4. Warm-Up and Mobility</div>
+                <div class="card-content">
+                    <p>Warm up with cardio and dynamic stretches, and focus on mobility for shoulders, hips, and ankles.</p>
+                </div>
+                <a href="/warmup_mobility" class="btn-learn">Learn More</a>
+            </div>
+
+            <div class="card">
+                <div class="card-title">5. Safety and Progression</div>
+                <div class="card-content">
+                    <p>Ensure proper form, use appropriate weights, and progress gradually. Consider coaching for guided improvement.</p>
+                </div>
+                <a href="/safety_progression" class="btn-learn">Learn More</a>
+            </div>
+        </div>
+
+        <!-- Button to go back to the Workout Plans page -->
+        <div class="text-center">
+            <a href="/workout_plans" class="btn-back">Back to Workout Plans</a>
+        </div>
+    </div>
+</body>
+</html>

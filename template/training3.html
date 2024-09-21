@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bodybuilding Training Guide</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet">
+    <style>
+        body {
+            background: linear-gradient(to right, #FF9800, #FF5722, #FFFFFF);
+            font-family: Arial, sans-serif;
+        }
+        .container { padding: 2rem; }
+        h1 { text-align: center; color: #FFFFFF; margin-bottom: 2rem; }
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+        .card {
+            background-color: #fff;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+        }
+        .card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
+        .card-title { font-size: 1.5rem; color: #FF9800; margin-bottom: 1rem; }
+        .card-content { color: #555; }
+        .btn-learn {
+            margin-top: 1.5rem;
+            display: block;
+            text-align: center;
+            padding: 10px 20px;
+            background-color: #FF9800;
+            color: white;
+            border-radius: 20px;
+            transition: background-color 0.3s ease;
+        }
+        .btn-learn:hover {
+            background-color: #ff5722;
+            text-decoration: none;
+            color: white;
+        }
+        .btn-back {
+            margin-top: 2rem;
+            text-align: center;
+            padding: 10px 30px;
+            background-color: #e67e22;
+            color: #fff;
+            border: none;
+            border-radius: 25px;
+            display: inline-block;
+            transition: background-color 0.3s ease;
+        }
+        .btn-back:hover {
+            background-color: white;
+            color: #e67e22;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Bodybuilding Training Guide</h1>
+        <div class="grid-container">
+            <div class="card">
+                <div class="card-title">Goal Setting and Planning</div>
+                <div class="card-content">
+                    <p><strong>Define Goals:</strong> Decide whether you want to build muscle mass, improve strength, or both. Set specific, measurable, achievable, relevant, and time-bound (SMART) goals.</p>
+                    <p><strong>Create a Plan:</strong> Develop a workout routine that targets all major muscle groups. Include a mix of compound and isolation exercises. Plan your workout frequency (e.g., 3-5 days per week).</p>
+                </div>
+                <a href="/bodybuilding_goals" class="btn-learn">Learn More</a>
+            </div>
+
+            <div class="card">
+                <div class="card-title">Warm-Up and Stretching</div>
+                <div class="card-content">
+                    <p><strong>Warm-Up:</strong> Start with 5-10 minutes of light cardio (e.g., jogging, cycling) to increase your heart rate and prepare your body for exercise.</p>
+                    <p><strong>Dynamic Stretching:</strong> Perform dynamic stretches to enhance flexibility and reduce injury risk. Focus on areas you’ll be working on that day.</p>
+                </div>
+                <a href="/bodybuilding_warmup" class="btn-learn">Learn More</a>
+            </div>
+
+            <div class="card">
+                <div class="card-title">Strength Training Routine</div>
+                <div class="card-content">
+                    <p><strong>Compound Exercises:</strong> Begin with compound exercises like squats, deadlifts, bench presses, and pull-ups. These work multiple muscle groups and help build overall strength.</p>
+                    <p><strong>Isolation Exercises:</strong> Follow up with isolation exercises like bicep curls, tricep extensions, and leg curls to target specific muscles.</p>
+                    <p><strong>Reps and Sets:</strong> For muscle growth, aim for 3-4 sets of 8-12 reps per exercise. Adjust based on your fitness level and goals.</p>
+                </div>
+                <a href="/strength_training" class="btn-learn">Learn More</a>
+            </div>
+
+            <div class="card">
+                <div class="card-title">Recovery and Nutrition</div>
+                <div class="card-content">
+                    <p><strong>Rest Days:</strong> Allow muscle groups time to recover by incorporating rest days into your routine. Aim for at least one rest day between workouts for the same muscle group.</p>
+                    <p><strong>Nutrition:</strong> Eat a balanced diet rich in protein (to support muscle repair), carbohydrates (for energy), and healthy fats. Consider protein shakes or supplements if needed.</p>
+                </div>
+                <a href="/bodybuilding_recovery" class="btn-learn">Learn More</a>
+            </div>
+
+            <div class="card">
+                <div class="card-title">Progress Tracking and Adjustment</div>
+                <div class="card-content">
+                    <p><strong>Track Progress:</strong> Keep a workout journal to record exercises, sets, reps, and weights. Monitor changes in strength, size, and overall fitness.</p>
+                    <p><strong>Adjust Routine:</strong> Periodically reassess and modify your workout plan to avoid plateaus and continue making progress. Increase weights, change exercises, or adjust rep ranges as needed.</p>
+                </div>
+                <a href="/progress_tracking" class="btn-learn">Learn More</a>
+            </div>
+        </div>
+
+        <!-- Button to go back to the Workout Plans page -->
+        <div class="text-center">
+            <a href="/workout_plans" class="btn-back">Back to Workout Plans</a>
+        </div>
+    </div>
+</body>
+</html>

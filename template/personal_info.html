@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Fitness Journey</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <style>
+        body {
+            background: linear-gradient(135deg, #cf69d8c8 0%, #235fa3aa 100%);
+            color: #ffffff;
+            font-family: 'Arial', sans-serif;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        h1, h2 {
+            color: #ffffff;
+            text-align: center;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin-top: 2rem;
+        }
+
+        .card {
+            background: rgba(255, 255, 255, 0.1);
+            border: none;
+            border-radius: 20px;
+            backdrop-filter: blur(10px);
+            transition: transform 0.3s ease;
+            padding: 20px;
+        }
+
+        .card:hover {
+            transform: scale(1.05);
+        }
+
+        .quote {
+            font-size: 2rem;
+            font-weight: bold;
+            color: #ffffff;
+            margin: 2.5rem 0;
+            text-align: center;
+        }
+
+        .quote span {
+            font-size: 1.5rem;
+            color: #00e6ff;
+        }
+
+        .btn-custom {
+            background-color: #1a33d2;
+            color: #fff;
+            padding: 10px 20px;
+            border-radius: 30px;
+            font-size: 1rem;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+            border: none;
+        }
+
+        .btn-custom:hover {
+            background-color: #18dc66;
+            transform: translateY(-3px);
+        }
+
+        .logo-placeholder {
+            width: 120px;
+            height: 120px;
+            background-color: rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            margin: 0 auto 3rem;
+            color: #fff;
+        }
+
+        footer {
+            text-align: center;
+            padding: 2rem 0;
+            background-color: rgba(0, 0, 50, 0.2);
+            width: 100%;
+            color: #ffffff;
+            font-size: 0.9rem;
+        }
+
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        .grid-item {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 1.5rem;
+            border-radius: 15px;
+            text-align: center;
+        }
+
+        .grid-item strong {
+            color: #f2f8f9;
+        }
+
+        /* Styling for the Edit Profile Button */
+        .edit-profile-btn {
+            margin-top: 10px;
+            display: flex;
+            justify-content: center;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <!-- Logo and Heading -->
+        <div class="logo-placeholder">
+            <img src="{{ url_for('static', filename='images/gym_logo1.png') }}" alt="Logo">
+        </div>
+        <h1>Your Fitness Journey</h1>
+
+        <!-- Motivational Quote -->
+        <div class="quote">
+            Success starts with self-discipline <span>🌟💪</span>
+        </div>
+
+        <!-- Cards for Personal Details and Progress -->
+        <div class="row text-center">
+            <div class="col-md-6 mb-4">
+                <div class="card">
+                    <h2 class="card-title">Personal Details</h2>
+                    <p><strong>Name:</strong> {{ user[1] }}</p>
+                    <p><strong>Email:</strong> {{ user[2] }}</p>
+                    <p><strong>Trainer ID:</strong> {{ user[3] }}</p>
+                    
+                    <!-- Button to Edit Profile Page -->
+                    <div class="edit-profile-btn">
+                        <a href="/user_edit_profile" class="btn btn-custom">Edit Profile</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Payment History Section with Grid -->
+            <div class="card col-md-6 mb-4">
+                <h2 class="card-title">Payment History</h2>
+                {% if payments %}
+                <div class="grid-container">
+                    {% for payment in payments %}
+                    <div class="grid-item">
+                        <p><strong>ID:</strong> {{ payment[0] }}</p>
+                        <p><strong>Training Type:</strong> {{ payment[1] }}</p>
+                        <p><strong>Tier:</strong> {{ payment[2] }}</p>
+                        <p><strong>Amount:</strong> ₹{{ payment[3] }}</p>
+                        <p><strong>UPI ID:</strong> {{ payment[4] }}</p>
+                        <p><strong>Email:</strong> {{ payment[5] }}</p>
+                        <p><strong>Payment Date:</strong> {{ payment[6] }}</p>
+                        <p><strong>Validation:</strong> {{ payment[7] }}</p>
+                    </div>
+                    {% endfor %}
+                </div>
+                {% else %}
+                <p>No payment history available. Let's get started on your fitness journey! 💪</p>
+                {% endif %}
+            </div>
+            <div class="text-center mt-4">
+                <a href="/dashboard" class="btn btn-secondary" style="background-color: #18dc66;">Go to Home</a>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,134 @@
+<!-- main.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Strength Training Guide</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet">
+    <style>
+        body {
+            background: linear-gradient(to right, #2980B9, #6DD5FA, #FFFFFF);
+            font-family: Arial, sans-serif;
+        }
+        .container { padding: 2rem; }
+        h1 { text-align: center; color: #FFFFFF; margin-bottom: 2rem; }
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+        .card {
+            background-color: #fff;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+        }
+        .card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
+        .card-title { font-size: 1.5rem; color: #2980B9; margin-bottom: 1rem; }
+        .card-content { color: #555; }
+        .btn-learn {
+            margin-top: 1.5rem;
+            display: block;
+            text-align: center;
+            padding: 10px 20px;
+            background-color: #2980B9;
+            color: white;
+            border-radius: 20px;
+            transition: background-color 0.3s ease;
+        }
+        .btn-learn:hover {
+            background-color: #1a6591;
+            text-decoration: none;
+            color: white;
+        }
+        /* New Button Styling */
+        .btn-back {
+            margin-top: 2rem;
+            text-align: center;
+            padding: 10px 30px;
+            background-color: #0e96c8;
+            color: #fff;
+            border: none;
+            border-radius: 25px;
+            display: inline-block;
+            transition: background-color 0.3s ease;
+        }
+        .btn-back:hover {
+            background-color: white;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Strength Training Guide</h1>
+        <div class="grid-container">
+            <div class="card">
+                <div class="card-title">Benefits of Strength Training</div>
+                <div class="card-content">
+                    <ul>
+                        <li>Increased muscle growth</li>
+                        <li>Improved bone density</li>
+                        <li>Fat loss and boosted metabolism</li>
+                        <li>Enhanced functional strength</li>
+                    </ul>
+                </div>
+                <a href="/benefits" class="btn-learn">Learn More</a>
+            </div>
+
+            <div class="card">
+                <div class="card-title">Basic Principles</div>
+                <div class="card-content">
+                    <p>Understand progressive overload, sets, reps, rest periods, and how they all contribute to improving your strength.</p>
+                </div>
+                <a href="/principles" class="btn-learn">Learn More</a>
+            </div>
+
+            <div class="card">
+                <div class="card-title">Types of Strength Training</div>
+                <div class="card-content">
+                    <ul>
+                        <li>Bodyweight exercises</li>
+                        <li>Free weights and machines</li>
+                        <li>Resistance bands</li>
+                    </ul>
+                </div>
+                <a href="/types" class="btn-learn">Learn More</a>
+            </div>
+
+            <div class="card">
+                <div class="card-title">Key Exercises</div>
+                <div class="card-content">
+                    <ul>
+                        <li>The number of times you perform an exercise in one set. Typical ranges</li>
+                    </ul>
+                </div>
+                <a href="/repetitions_sets" class="btn-learn">Learn More</a>
+            </div>
+
+            <div class="card">
+                <div class="card-title">Advanced Techniques</div>
+                <div class="card-content">
+                    <ul>
+                        <li>Supersets</li>
+                        <li>Drop sets</li>
+                        <li>Pyramid sets</li>
+                    </ul>
+                </div>
+                <a href="/techniques" class="btn-learn">Learn More</a>
+            </div>
+        </div>
+
+        <!-- Button to go back to the Workout Plans page -->
+        <div class="text-center">
+            <a href="/workout_plans" class="btn-back">Back to Workout Plans</a>
+        </div>
+    </div>
+</body>
+</html>

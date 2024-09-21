@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Check Email</title>
+    <style>
+        /* Gradient background styling */
+        body {
+            background: linear-gradient(135deg, #b1c8ea, #7ca0d9); /* Warm gradient */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            font-family: 'Arial', sans-serif;
+        }
+
+        /* Card styling */
+        .card {
+            background-color: white;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            width: 100%;
+            max-width: 400px;
+        }
+
+        /* Title styling */
+        h1 {
+            font-size: 2em;
+            color: #333;
+            margin-bottom: 1rem;
+        }
+
+        /* Label styling */
+        label {
+            font-size: 1rem;
+            color: #666;
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        /* Input styling */
+        input[type="email"] {
+            width: 100%;
+            padding: 10px;
+            font-size: 1rem;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            margin-bottom: 20px;
+            box-sizing: border-box;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Button styling */
+        button {
+            background: linear-gradient(135deg, #4facfe, #00f2fe); /* Blue gradient */
+            color: white;
+            border: none;
+            border-radius: 20px;
+            padding: 10px 20px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: transform 0.3s ease, background-color 0.3s ease;
+            width: 100%;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Button hover effect */
+        button:hover {
+            background: linear-gradient(135deg, #00f2fe, #4facfe); /* Reverse gradient */
+            transform: translateY(-3px);
+        }
+
+        /* Card responsive adjustments */
+        @media (max-width: 767px) {
+            .card {
+                padding: 20px;
+                max-width: 90%;
+            }
+
+            h1 {
+                font-size: 1.8em;
+            }
+
+            button {
+                padding: 8px 16px;
+                font-size: 0.9rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="card">
+        <h1>Check Email</h1>
+        <form action="/check_email" method="POST">
+            <label for="email">Enter your email:</label>
+            <input type="email" id="email" name="email" placeholder="Enter your email" required>
+            <button type="submit">Check</button>
+        </form>
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cooldown and Recovery - CrossFit Training Guide</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet">
+    <style>
+        body {
+            background: linear-gradient(to right, #FF9800, #FF5722, #FFFFFF);
+            font-family: Arial, sans-serif;
+            color: #333;
+            padding-top: 60px; /* Adjust based on header height */
+            margin: 0;
+        }
+        header {
+            background: linear-gradient(135deg, #ff6f00, #ff3d00);
+            color: white;
+            padding: 20px;
+            text-align: center;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+        }
+        header h1 {
+            margin: 0;
+        }
+        .container {
+            padding: 2rem;
+        }
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+        .grid-item {
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            position: relative;
+            overflow: hidden;
+            transition: transform 0.3s, box-shadow 0.3s, background-color 0.3s;
+            animation: fadeIn 1.5s;
+            border-left: 5px solid transparent;
+        }
+        .grid-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -10px;
+            width: 10px;
+            height: 100%;
+            background: linear-gradient(to bottom, transparent 50%, #ff6f00 50%);
+            background-size: 100% 20px;
+            z-index: 1;
+        }
+        .grid-item:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+            background-color: white;
+            border-left: 5px solid #ff6f00;
+        }
+        footer {
+            background: linear-gradient(135deg, #ff6f00, #ff3d00);
+            color: white;
+            text-align: center;
+            padding: 20px;
+            position: relative;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .btn-back {
+            margin-top: 2rem;
+            text-align: center;
+            padding: 10px 30px;
+            background-color: #e67e22;
+            color: #fff;
+            border: none;
+            border-radius: 25px;
+            display: inline-block;
+            transition: background-color 0.3s ease;
+            text-decoration: none;
+        }
+        .btn-back:hover {
+            background-color: white;
+            color: #e67e22;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Cooldown and Recovery</h1>
+    </header>
+    <main>
+        <div class="container">
+            <section class="grid-container">
+                <div class="grid-item">
+                    <h2>Cooldown Techniques</h2>
+                    <p>After completing a high-intensity CrossFit workout, it's crucial to engage in proper cooldown techniques to help your body transition back to a resting state.</p>
+                    <ul>
+                        <li><strong>Light Cardio:</strong> Engage in 5-10 minutes of low-intensity cardio, such as walking or light cycling, to gradually reduce your heart rate.</li>
+                        <li><strong>Static Stretching:</strong> Focus on stretching major muscle groups used during the workout to improve flexibility and reduce muscle tightness. Hold each stretch for 20-30 seconds.</li>
+                        <li><strong>Foam Rolling:</strong> Use a foam roller to perform self-myofascial release on sore muscles. This can help alleviate muscle knots and improve blood flow.</li>
+                    </ul>
+                </div>
+                <div class="grid-item">
+                    <h2>Recovery Strategies</h2>
+                    <p>Proper recovery is essential for muscle repair and overall performance improvement. Incorporate the following strategies into your routine:</p>
+                    <ul>
+                        <li><strong>Hydration:</strong> Drink plenty of water to stay hydrated and help your muscles recover. Consider adding electrolyte-rich beverages if the workout was particularly intense.</li>
+                        <li><strong>Nutrition:</strong> Consume a balanced meal or snack containing protein and carbohydrates within 30-60 minutes after your workout to support muscle repair and replenish glycogen stores.</li>
+                        <li><strong>Rest:</strong> Ensure you get adequate sleep and rest between workouts. Rest days are important for muscle recovery and overall well-being.</li>
+                    </ul>
+                </div>
+                <div class="grid-item">
+                    <h2>Advanced Recovery Techniques</h2>
+                    <p>For those looking to enhance their recovery further, consider these advanced techniques:</p>
+                    <ul>
+                        <li><strong>Contrast Baths:</strong> Alternate between hot and cold water baths to improve circulation and reduce muscle soreness.</li>
+                        <li><strong>Massage Therapy:</strong> Regular massages can help alleviate muscle tension and improve overall recovery.</li>
+                        <li><strong>Active Recovery:</strong> Engage in low-intensity activities such as yoga or swimming to keep muscles active and aid in recovery.</li>
+                    </ul>
+                </div>
+            </section>
+            <div class="text-center">
+                <a href="/training-type4" class="btn-back">Back to CrossFit Training Guide</a>
+            </div>
+        </div>
+    </main>
+</body>
+</html>

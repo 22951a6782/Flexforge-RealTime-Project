@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Integrating Cardio with Other Workouts</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, #f2f2f2, #e0e0e0);
+            overflow-x: hidden;
+            color: #333;
+            padding-top: 60px; /* Adjust based on header height */
+        }
+
+        header {
+            background: linear-gradient(135deg, #ff9800, #ff5722);
+            color: white;
+            padding: 20px;
+            text-align: center;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            transition: top 0.3s ease;
+            z-index: 1000;
+        }
+
+        h1 {
+            margin: 0;
+            font-size: 2em;
+            font-weight: bold;
+        }
+
+        main {
+            padding: 20px;
+        }
+
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+
+        .grid-item {
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            transition: transform 0.3s, box-shadow 0.3s, background-color 0.3s, border-left 0.3s;
+            animation: fadeIn 1.5s;
+            border-left: 5px solid transparent;
+        }
+
+        .grid-item:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+            background-color: #f5f5f5;
+            border-left: 5px solid #ff9800;
+        }
+
+        footer {
+            background: linear-gradient(135deg, #ff9800, #ff5722);
+            color: white;
+            text-align: center;
+            padding: 20px;
+            position: relative;
+            margin-top: 20px;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Hide header on scroll down, show on scroll up */
+        .hidden {
+            top: -60px; /* Adjust based on header height */
+        }
+        .btn-back {
+            margin-top: 2rem;
+            text-align: center;
+            padding: 10px 30px;
+            background-color: #ff9800;
+            color: #fff;
+            border: none;
+            border-radius: 25px;
+            display: inline-block;
+            text-decoration: none;
+            transition: background-color 0.3s ease;
+        }
+
+        .btn-back:hover {
+            background-color: #ff5722;
+            text-decoration: none;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <header id="header">
+        <h1>Integrating Cardio with Other Workouts</h1>
+    </header>
+    <main>
+        <section class="grid-container">
+            <div class="grid-item">
+                <h2>1. Balance with Strength Training</h2>
+                <p>For a well-rounded fitness routine, balance your cardio workouts with strength training exercises. This combination helps you improve endurance and build muscle simultaneously, leading to better overall fitness.</p>
+                <p><strong>Tip:</strong> Alternate between cardio and strength training on different days or within the same session to keep your routine varied and balanced.</p>
+            </div>
+            <div class="grid-item">
+                <h2>2. Rest and Recovery</h2>
+                <p>Rest is vital to allow your muscles to recover and grow, especially after high-intensity cardio and strength sessions. Ensure you take breaks between intense cardio workouts to prevent overtraining and reduce the risk of injury.</p>
+                <p><strong>Tip:</strong> Schedule rest days or low-intensity cardio, such as walking or swimming, between tougher workouts for better recovery.</p>
+            </div>
+            <div class="grid-item">
+                <h2>3. Cardio-Strength Combination</h2>
+                <p>Incorporate workouts that blend both cardio and strength exercises, such as circuit training, HIIT (High-Intensity Interval Training), or boot camps. These workouts challenge your cardiovascular system while building muscle at the same time.</p>
+                <p><strong>Example:</strong> A combination of bodyweight exercises (push-ups, squats) followed by short bursts of cardio (jump rope, sprints) creates an effective cardio-strength routine.</p>
+            </div>
+            <div class="grid-item">
+                <h2>4. Varied Cardio Equipment</h2>
+                <p>Include a variety of cardio machines like treadmills, ellipticals, or rowing machines in your workout to prevent boredom and ensure that different muscle groups are engaged.</p>
+                <p><strong>Tip:</strong> Use resistance on these machines to combine strength and cardio training, giving you the benefits of both in one session.</p>
+            </div>
+            <div class="grid-item">
+                <h2>5. Progression</h2>
+                <p>As your fitness improves, progressively increase the intensity or duration of your workouts. For example, if you’re doing a strength and cardio circuit, add more sets, increase weights, or shorten rest times to challenge your body further.</p>
+                <p><strong>Tip:</strong> Keep track of your progress and adjust your workout routine accordingly to keep challenging your body.</p>
+            </div>
+            <div class="text-center">
+              <a href="/training-type2" class="btn-back">Back to Cardio Guide</a>
+          </div>
+        </section>
+    </main>
+    <script>
+        let lastScrollTop = 0;
+        const header = document.getElementById('header');
+
+        window.addEventListener('scroll', function() {
+            let currentScroll = window.pageYOffset || document.documentElement.scrollTop;
+            if (currentScroll > lastScrollTop) {
+                // Scroll Down
+                header.classList.add('hidden');
+            } else {
+                // Scroll Up
+                header.classList.remove('hidden');
+            }
+            lastScrollTop = currentScroll <= 0 ? 0 : currentScroll; // For Mobile or negative scrolling
+        });
+    </script>
+</body>
+</html>

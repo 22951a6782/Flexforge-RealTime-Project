@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Understanding Cardiovascular Training</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, #f2f2f2, #e0e0e0);
+            overflow-x: hidden;
+            color: #333;
+            padding-top: 60px; /* Adjust based on header height */
+        }
+
+        header {
+            background: linear-gradient(135deg, #ff9800, #ff5722);
+            color: white;
+            padding: 20px;
+            text-align: center;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            transition: top 0.3s ease;
+            z-index: 1000;
+        }
+
+        h1 {
+            margin: 0;
+            font-size: 2em;
+            font-weight: bold;
+        }
+
+        main {
+            padding: 20px;
+        }
+
+        .content-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .content {
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            width: 80%;
+            max-width: 800px;
+            transition: transform 0.3s, box-shadow 0.3s, background-color 0.3s, border-left 0.3s;
+            animation: fadeIn 1.5s;
+            border-left: 5px solid transparent;
+        }
+
+        .content:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+            background-color: #f5f5f5;
+            border-left: 5px solid #ff9800;
+        }
+
+        footer {
+            background: linear-gradient(135deg, #ff9800, #ff5722);
+            color: white;
+            text-align: center;
+            padding: 20px;
+            position: relative;
+            margin-top: 20px;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Hide header on scroll down, show on scroll up */
+        .hidden {
+            top: -60px; /* Adjust based on header height */
+        }
+
+        .btn-back {
+            margin-top: 2rem;
+            text-align: center;
+            padding: 10px 30px;
+            background-color: #0e96c8;
+            color: #fff;
+            border: none;
+            text-decoration: none;
+            border-radius: 25px;
+            display: inline-block;
+            transition: background-color 0.3s ease;
+        }
+
+        .btn-back:hover {
+            background-color:#ff9800;
+            color: white;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+    <header id="header">
+        <h1>Understanding Cardiovascular Training</h1>
+    </header>
+    <main>
+        <section class="content-container">
+            <div class="content">
+                <h2>What is Cardiovascular Training?</h2>
+                <p>
+                    Cardiovascular training involves exercises that increase your heart rate and improve the efficiency of your cardiovascular system, including your heart and lungs. This type of training strengthens your heart and lungs, enhancing your overall fitness.
+                </p>
+                <h2>Benefits of Cardiovascular Training</h2>
+                <ul>
+                    <li>Improves heart health and circulation</li>
+                    <li>Increases lung capacity and oxygen flow</li>
+                    <li>Aids in weight management through calorie burning</li>
+                    <li>Boosts stamina and endurance</li>
+                    <li>Enhances mental health and reduces stress</li>
+                </ul>
+                <h2>Types of Cardiovascular Exercises</h2>
+                <p>
+                    Common cardiovascular exercises include running, cycling, swimming, and using machines such as treadmills, ellipticals, and stationary bikes.
+                </p>
+            </div>
+        </section>
+
+        <!-- Button to go back to the Cardiovascular Guide -->
+        <div class="text-center">
+            <a href="/training-type2" class="btn-back">Back to Cardiovascular Guide</a>
+        </div>
+    </main>
+    <script>
+        let lastScrollTop = 0;
+        const header = document.getElementById('header');
+
+        window.addEventListener('scroll', function() {
+            let currentScroll = window.pageYOffset || document.documentElement.scrollTop;
+            if (currentScroll > lastScrollTop) {
+                // Scroll Down
+                header.classList.add('hidden');
+            } else {
+                // Scroll Up
+                header.classList.remove('hidden');
+            }
+            lastScrollTop = currentScroll <= 0 ? 0 : currentScroll; // For Mobile or negative scrolling
+        });
+    </script>
+</body>
+</html>

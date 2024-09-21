@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CrossFit Workout of the Day (WOD)</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, #f2f2f2, #e0e0e0);
+            color: #333;
+            padding-top: 60px; /* Adjust based on header height */
+        }
+
+        header {
+            background: linear-gradient(135deg, #ff6f00, #ff3d00);
+            color: white;
+            padding: 20px;
+            text-align: center;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            transition: top 0.3s ease;
+            z-index: 1000;
+        }
+
+        h1 {
+            margin: 0;
+        }
+
+        .container {
+            padding: 2rem;
+        }
+
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+
+        .grid-item {
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            position: relative;
+            overflow: hidden;
+            transition: transform 0.3s, box-shadow 0.3s, background-color 0.3s;
+            animation: fadeIn 1.5s;
+            border-left: 5px solid transparent;
+        }
+
+        .grid-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -10px;
+            width: 10px;
+            height: 100%;
+            background: linear-gradient(to bottom, transparent 50%, #ff6f00 50%);
+            background-size: 100% 20px;
+            z-index: 1;
+        }
+
+        .grid-item:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+            background-color: #f5f5f5;
+            border-left: 5px solid #ff6f00;
+        }
+
+        footer {
+            background: linear-gradient(135deg, #ff6f00, #ff3d00);
+            color: white;
+            text-align: center;
+            padding: 20px;
+            position: relative;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Hide header on scroll down, show on scroll up */
+        .hidden {
+            top: -60px; /* Adjust based on header height */
+        }
+
+        .btn-learn {
+            margin-top: 2rem;
+            text-align: center;
+            padding: 10px 30px;
+            background-color: white;
+            color: #ff6f00;
+            border: none;
+            border-radius: 25px;
+            display: inline-block;
+            transition: background-color 0.3s ease;
+            text-decoration: none;
+        }
+        .btn-learn:hover {
+            background-color: rgb(111, 218, 49);
+            color: white;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+    <header id="header">
+        <h1>CrossFit Workout of the Day</h1>
+    </header>
+    <main>
+        <div class="container">
+            <section class="grid-container">
+                <div class="grid-item">
+                    <h2>Warm-Up</h2>
+                    <p><strong>Objective:</strong> Prepare your body for high-intensity exercise with dynamic movements.</p>
+                    <p><strong>Exercises:</strong></p>
+                    <ul>
+                        <li>Jumping Jacks - 3 sets of 30 seconds</li>
+                        <li>High Knees - 3 sets of 30 seconds</li>
+                        <li>Dynamic Lunges - 3 sets of 10 reps per leg</li>
+                    </ul>
+                </div>
+                <div class="grid-item">
+                    <h2>Main WOD</h2>
+                    <p><strong>Workout:</strong> Perform each exercise for the designated time or reps, with minimal rest between exercises.</p>
+                    <p><strong>Exercises:</strong></p>
+                    <ul>
+                        <li>Burpees - 3 rounds of 15 reps</li>
+                        <li>Deadlifts - 4 sets of 12 reps</li>
+                        <li>Box Jumps - 3 rounds of 20 reps</li>
+                        <li>Push-Ups - 4 sets of 15 reps</li>
+                    </ul>
+                </div>
+                <div class="grid-item">
+                    <h2>Cooldown</h2>
+                    <p><strong>Objective:</strong> Gradually lower your heart rate and stretch muscles to aid recovery.</p>
+                    <p><strong>Exercises:</strong></p>
+                    <ul>
+                        <li>Walking - 5 minutes</li>
+                        <li>Static Stretching - 10 minutes focusing on major muscle groups</li>
+                        <li>Foam Rolling - 5 minutes on sore areas</li>
+                    </ul>
+                </div>
+                <div class="grid-item">
+                    <h2>Tips for Success</h2>
+                    <p><strong>Hydration:</strong> Drink plenty of water before, during, and after the workout.</p>
+                    <p><strong>Nutrition:</strong> Fuel your body with a balanced meal or snack containing protein and carbs.</p>
+                    <p><strong>Form:</strong> Focus on proper form to prevent injuries and maximize effectiveness.</p>
+                </div>
+            </section>
+        </div>
+    </main>
+    <footer>
+        <a href="/training-type4" class="btn-learn">Back to Workout Plans</a>
+    </footer>
+    <script>
+        let lastScrollTop = 0;
+        const header = document.getElementById('header');
+
+        window.addEventListener('scroll', function() {
+            let currentScroll = window.pageYOffset || document.documentElement.scrollTop;
+            if (currentScroll > lastScrollTop) {
+                // Scroll Down
+                header.classList.add('hidden');
+            } else {
+                // Scroll Up
+                header.classList.remove('hidden');
+            }
+            lastScrollTop = currentScroll <= 0 ? 0 : currentScroll; // For Mobile or negative scrolling
+        });
+    </script>
+</body>
+</html>

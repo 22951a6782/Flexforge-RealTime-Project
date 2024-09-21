@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trainer Dashboard</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+    <style>
+        :root {
+            --gradient-1: linear-gradient(135deg, #6e48aa 0%, #9d50bb 100%);
+            --gradient-2: linear-gradient(135deg, #42e695 0%, #3bb2b8 100%);
+            --gradient-3: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            --text-color: #333;
+            --background-color: #f0f2f5;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: var(--background-color);
+            color: var(--text-color);
+        }
+        .sidebar {
+            height: 100vh;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 250px;
+            background: var(--gradient-1);
+            color: white;
+            padding: 1rem;
+            transition: all 0.3s;
+        }
+        .sidebar a {
+            color: white;
+            text-decoration: none;
+            transition: all 0.3s;
+            display: block;
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+        }
+        .sidebar a:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+            transform: translateX(5px);
+        }
+        .main-content {
+            margin-left: 250px;
+            padding: 2rem;
+            transition: all 0.3s;
+        }
+        @media (max-width: 768px) {
+            .sidebar {
+                margin-left: -250px;
+            }
+            .main-content {
+                margin-left: 0;
+            }
+            .sidebar.active {
+                margin-left: 0;
+            }
+            .main-content.active {
+                margin-left: 250px;
+            }
+        }
+        .card {
+            border: none;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease-in-out;
+            background: white;
+            overflow: hidden;
+        }
+        .card:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 5px;
+            background: var(--gradient-2);
+        }
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+        }
+        .navbar {
+            background: var(--gradient-1);
+            padding: 1rem 2rem;
+        }
+        .navbar-brand {
+            font-weight: bold;
+            color: white !important;
+            transition: all 0.3s ease;
+        }
+        .navbar-brand:hover {
+            transform: scale(1.05);
+        }
+        .progress-card {
+            background: white;
+            border-radius: 10px;
+            padding: 1rem;
+            margin-bottom: 1rem;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        .progress-card:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 5px;
+            background: var(--gradient-3);
+        }
+        .progress-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+        }
+        .nav-link {
+            color: white !important;
+            transition: all 0.3s ease;
+        }
+        .nav-link:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+            border-radius: 5px;
+        }
+        .btn-primary {
+            background: var(--gradient-2);
+            border: none;
+            transition: all 0.3s ease;
+        }
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        .section-title {
+            position: relative;
+            display: inline-block;
+            padding-bottom: 5px;
+        }
+        .section-title:after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 100%;
+            height: 3px;
+            background: var(--gradient-2);
+        }
+    </style>
+</head>
+<body>
+
+<div class="sidebar" id="sidebar">
+    <h2 class="text-center mb-4">Trainer Dashboard</h2>
+    <ul class="nav flex-column">
+        <li class="nav-item">
+            <a class="nav-link" href="#profile"><i class="fas fa-user me-2"></i>Profile</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="#track-progress"><i class="fas fa-chart-line me-2"></i>Track Progress</a>
+        </li>
+    </ul>
+</div>
+
+<div class="main-content" id="main-content">
+    <nav class="navbar navbar-expand-lg navbar-dark mb-4">
+        <div class="container-fluid">
+            <button id="sidebarToggle" class="btn btn-primary d-md-none">
+                <i class="fas fa-bars"></i>
+            </button>
+            <a class="navbar-brand" href="#">Gym Community</a>
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="/trainer_logout"><i class="fas fa-sign-out-alt me-2"></i>Logout</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <section id="profile" class="mb-5">
+        <h2 class="section-title mb-4"><i class="fas fa-user me-2"></i>Profile</h2>
+        <div class="card">
+            <div class="card-body">
+                <h3 class="card-title">{{ trainer_name }}</h3>
+                <p class="card-text"><i class="fas fa-envelope me-2"></i>{{ trainer_email }}</p>
+                <p class="card-text"><i class="fas fa-dumbbell me-2"></i>{{ trainer_expertise }}</p>
+                <p class="card-text"><i class="fas fa-certificate me-2"></i>{{ trainer_certifications }}</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="track-progress">
+        <h2 class="section-title mb-4"><i class="fas fa-chart-line me-2"></i>Track Progress</h2>
+        <div class="row">
+            {% for entry in progress_entries %}
+            <div class="col-md-6 mb-4">
+                <div class="progress-card">
+                    <h5><i class="fas fa-user me-2"></i>Client ID: {{ entry.user_id }}</h5>
+                    <p><strong><i class="far fa-calendar-alt me-2"></i>Progress Date:</strong> {{ entry.progress_date }}</p>
+                    <p><strong><i class="fas fa-running me-2"></i>Workout Details:</strong> {{ entry.workout_details }}</p>
+                    <p><strong><i class="fas fa-exclamation-triangle me-2"></i>Issues:</strong> {{ entry.issues }}</p>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </section>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"></script>
+<script>
+    document.getElementById('sidebarToggle').addEventListener('click', function() {
+        document.getElementById('sidebar').classList.toggle('active');
+        document.getElementById('main-content').classList.toggle('active');
+    });
+</script>
+</body>
+</html>

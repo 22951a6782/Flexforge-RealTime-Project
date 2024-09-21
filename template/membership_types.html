@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gym Membership Plans</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet">
+    <style>
+        body {
+            background: linear-gradient(to right, #e66465, #9198e5);
+            font-family: Arial, sans-serif;
+        }
+        .container {
+            padding: 2rem;
+        }
+        h1 {
+            text-align: center;
+            color: #fff;
+            margin-bottom: 2rem;
+        }
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+        .card {
+            background-color: #fff;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+            position: relative;
+        }
+        .card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
+        .card-title {
+            font-size: 1.5rem;
+            color: #e66465;
+            margin-bottom: 1rem;
+        }
+        .card-content {
+            color: #555;
+        }
+        .btn-pay {
+            margin-top: 1.5rem;
+            display: block;
+            text-align: center;
+            padding: 10px 20px;
+            background-color: #e66465;
+            color: white;
+            border-radius: 20px;
+            transition: background-color 0.3s ease;
+        }
+        .btn-pay:hover {
+            background-color: #9198e5;
+            text-decoration: none;
+            color: white;
+        }
+        .membership-tier {
+            display: flex;
+            justify-content: space-around;
+            margin-bottom: 1rem;
+        }
+        .tier {
+            background: #e66465;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+        .tier:hover {
+            background-color: #9198e5;
+            transform: scale(1.05);
+        }
+        .tier.selected {
+            background-color: #fff;
+            color: #e66465;
+            border: 2px solid #e66465;
+        }
+        .tier-price {
+            font-size: 1.2rem;
+        }
+        .price-container {
+            margin-bottom: 1rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Gym Membership Plans</h1>
+        <div class="grid-container">
+            <!-- Strength Training -->
+            <div class="card" id="strength_training">
+                <div class="card-title">Strength Training</div>
+                <div class="card-content">
+                    <p>Build muscle and improve strength with our strength training program.</p>
+                    <div class="membership-tier">
+                        <div class="tier" data-price="30" data-tier="Basic" onclick="selectTier(this)">Basic</div>
+                        <div class="tier" data-price="50" data-tier="Advanced" onclick="selectTier(this)">Advanced</div>
+                        <div class="tier" data-price="70" data-tier="Premium" onclick="selectTier(this)">Premium</div>
+                    </div>
+                    <div class="price-container">
+                        <p class="tier-price">Price: ₹<span id="strength_training_price">30</span>/month</p>
+                    </div>
+                </div>
+                <a href="#" class="btn-pay" onclick="processPayment('strength_training')">Pay Now</a>
+            </div>
+
+            <!-- Cardiovascular Training -->
+            <div class="card" id="cardiovascular_training">
+                <div class="card-title">Cardiovascular Training</div>
+                <div class="card-content">
+                    <p>Improve your heart health and endurance with cardio workouts.</p>
+                    <div class="membership-tier">
+                        <div class="tier" data-price="25" data-tier="Basic" onclick="selectTier(this)">Basic</div>
+                        <div class="tier" data-price="40" data-tier="Advanced" onclick="selectTier(this)">Advanced</div>
+                        <div class="tier" data-price="60" data-tier="Premium" onclick="selectTier(this)">Premium</div>
+                    </div>
+                    <div class="price-container">
+                        <p class="tier-price">Price: ₹<span id="cardiovascular_training_price">25</span>/month</p>
+                    </div>
+                </div>
+                <a href="#" class="btn-pay" onclick="processPayment('cardiovascular_training')">Pay Now</a>
+            </div>
+
+            <!-- Bodybuilding Training -->
+            <div class="card" id="bodybuilding_training">
+                <div class="card-title">Bodybuilding Training</div>
+                <div class="card-content">
+                    <p>Transform your body with focused muscle-building exercises.</p>
+                    <div class="membership-tier">
+                        <div class="tier" data-price="35" data-tier="Basic" onclick="selectTier(this)">Basic</div>
+                        <div class="tier" data-price="55" data-tier="Advanced" onclick="selectTier(this)">Advanced</div>
+                        <div class="tier" data-price="80" data-tier="Premium" onclick="selectTier(this)">Premium</div>
+                    </div>
+                    <div class="price-container">
+                        <p class="tier-price">Price: ₹<span id="bodybuilding_training_price">35</span>/month</p>
+                    </div>
+                </div>
+                <a href="#" class="btn-pay" onclick="processPayment('bodybuilding_training')">Pay Now</a>
+            </div>
+
+            <!-- CrossFit Training -->
+            <div class="card" id="crossfit_training">
+                <div class="card-title">CrossFit Training</div>
+                <div class="card-content">
+                    <p>Experience high-intensity workouts that challenge your whole body.</p>
+                    <div class="membership-tier">
+                        <div class="tier" data-price="40" data-tier="Basic" onclick="selectTier(this)">Basic</div>
+                        <div class="tier" data-price="60" data-tier="Advanced" onclick="selectTier(this)">Advanced</div>
+                        <div class="tier" data-price="90" data-tier="Premium" onclick="selectTier(this)">Premium</div>
+                    </div>
+                    <div class="price-container">
+                        <p class="tier-price">Price: ₹<span id="crossfit_training_price">40</span>/month</p>
+                    </div>
+                </div>
+                <a href="#" class="btn-pay" onclick="processPayment('crossfit_training')">Pay Now</a>
+            </div>
+
+            <!-- Olympic Weightlifting -->
+            <div class="card" id="olympic_weightlifting">
+                <div class="card-title">Olympic Weightlifting</div>
+                <div class="card-content">
+                    <p>Master the clean and jerk, and the snatch with professional guidance.</p>
+                    <div class="membership-tier">
+                        <div class="tier" data-price="50" data-tier="Basic" onclick="selectTier(this)">Basic</div>
+                        <div class="tier" data-price="75" data-tier="Advanced" onclick="selectTier(this)">Advanced</div>
+                        <div class="tier" data-price="100" data-tier="Premium" onclick="selectTier(this)">Premium</div>
+                    </div>
+                    <div class="price-container">
+                        <p class="tier-price">Price: ₹<span id="olympic_weightlifting_price">50</span>/month</p>
+                    </div>
+                </div>
+                <a href="#" class="btn-pay" onclick="processPayment('olympic_weightlifting')">Pay Now</a>
+            </div>
+
+            <!-- Circuit Training -->
+            <div class="card" id="circuit_training">
+                <div class="card-title">Circuit Training</div>
+                <div class="card-content">
+                    <p>Engage in fast-paced, high-intensity exercises that target all muscle groups.</p>
+                    <div class="membership-tier">
+                        <div class="tier" data-price="20" data-tier="Basic" onclick="selectTier(this)">Basic</div>
+                        <div class="tier" data-price="35" data-tier="Advanced" onclick="selectTier(this)">Advanced</div>
+                        <div class="tier" data-price="50" data-tier="Premium" onclick="selectTier(this)">Premium</div>
+                    </div>
+                    <div class="price-container">
+                        <p class="tier-price">Price: ₹<span id="circuit_training_price">20</span>/month</p>
+                    </div>
+                </div>
+                <a href="#" class="btn-pay" onclick="processPayment('circuit_training')">Pay Now</a>
+            </div>
+
+            <!-- Powerlifting -->
+            <div class="card" id="powerlifting_training">
+                <div class="card-title">Powerlifting</div>
+                <div class="card-content">
+                    <p>Focus on improving your squat, bench press, and deadlift.</p>
+                    <div class="membership-tier">
+                        <div class="tier" data-price="45" data-tier="Basic" onclick="selectTier(this)">Basic</div>
+                        <div class="tier" data-price="65" data-tier="Advanced" onclick="selectTier(this)">Advanced</div>
+                        <div class="tier" data-price="85" data-tier="Premium" onclick="selectTier(this)">Premium</div>
+                    </div>
+                    <div class="price-container">
+                        <p class="tier-price">Price: ₹<span id="powerlifting_training_price">45</span>/month</p>
+                    </div>
+                </div>
+                <a href="#" class="btn-pay" onclick="processPayment('powerlifting_training')">Pay Now</a>
+            </div>
+        </div>
+    </div>
+    <div class="text-center mt-4">
+        <a href="/" class="btn btn-secondary" style="background-color: #18dc66;">Go to Home</a>
+    </div>
+
+    <script>
+        function selectTier(element) {
+            // Remove selected class from all tiers
+            const tiers = element.parentElement.getElementsByClassName('tier');
+            for (const tier of tiers) {
+                tier.classList.remove('selected');
+            }
+            // Add selected class to the clicked tier
+            element.classList.add('selected');
+            // Update the price display
+            const card = element.closest('.card');
+            const priceSpan = card.querySelector('.tier-price span');
+            priceSpan.textContent = element.getAttribute('data-price');
+        }
+        
+        function processPayment(id) {
+            const card = document.getElementById(id);
+            const selectedTier = card.querySelector('.tier.selected');
+            if (selectedTier) {
+                const tierName = selectedTier.getAttribute('data-tier');
+                const price = selectedTier.getAttribute('data-price');
+                const payUrl = `/upi_payment?training_type=${encodeURIComponent(id)}&tier=${encodeURIComponent(tierName)}&price=${encodeURIComponent(price)}`;
+                window.location.href = payUrl;
+            } else {
+                alert('Please select a membership tier.');
+            }
+        }
+    </script>
+  
+  
+</body>
+</html>

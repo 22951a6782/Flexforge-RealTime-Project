@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cardiovascular Training Guide</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet">
+    <style>
+        body {
+            background: linear-gradient(to right, #FF9800, #FF5722, #FFFFFF);
+            font-family: Arial, sans-serif;
+        }
+        .container { padding: 2rem; }
+        h1 { text-align: center; color: #FFFFFF; margin-bottom: 2rem; }
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+        .card {
+            background-color: #fff;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+        }
+        .card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
+        .card-title { font-size: 1.5rem; color: #FF9800; margin-bottom: 1rem; }
+        .card-content { color: #555; }
+        .btn-learn {
+            margin-top: 1.5rem;
+            display: block;
+            text-align: center;
+            padding: 10px 20px;
+            background-color: #FF9800;
+            color: white;
+            border-radius: 20px;
+            transition: background-color 0.3s ease;
+        }
+        .btn-learn:hover {
+            background-color: #ff5722;
+            text-decoration: none;
+            color: white;
+        }
+        .btn-back {
+            margin-top: 2rem;
+            text-align: center;
+            padding: 10px 30px;
+            background-color: #e67e22;
+            color: #fff;
+            border: none;
+            border-radius: 25px;
+            display: inline-block;
+            transition: background-color 0.3s ease;
+        }
+        .btn-back:hover {
+            background-color: white;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Cardiovascular Training Guide</h1>
+        <div class="grid-container">
+            <div class="card">
+                <div class="card-title">Understanding Cardiovascular Training</div>
+                <div class="card-content">
+                    <p>Cardiovascular (cardio) training involves exercises that increase your heart rate and improve your cardiovascular system.</p>
+                    <p><strong>Benefits:</strong> Enhances heart health, burns calories, improves endurance, and boosts energy levels.</p>
+                </div>
+                <a href="/understand_cardio" class="btn-learn">Learn More</a>
+            </div>
+
+            <div class="card">
+                <div class="card-title">Choosing the Right Cardio Equipment</div>
+                <div class="card-content">
+                    <ul>
+                        <li><strong>Treadmill:</strong> Walking, jogging, and running with adjustable speed and incline.</li>
+                        <li><strong>Elliptical:</strong> Low-impact workout, less stress on joints.</li>
+                        <li><strong>Stationary Bike:</strong> Focuses on lower body strength and endurance.</li>
+                        <li><strong>Rowing Machine:</strong> Full-body workout engaging both upper and lower body.</li>
+                    </ul>
+                </div>
+                <a href="/cardio_equipment" class="btn-learn">Learn More</a>
+            </div>
+
+            <div class="card">
+                <div class="card-title">Designing a Cardio Workout Routine</div>
+                <div class="card-content">
+                    <p>Begin with a warm-up, followed by 20-30 minutes of moderate to vigorous exercise, and finish with a cool-down.</p>
+                    <p><strong>Types:</strong> Steady-state and interval training.</p>
+                </div>
+                <a href="/cardio_routine" class="btn-learn">Learn More</a>
+            </div>
+
+            <div class="card">
+                <div class="card-title">Monitoring & Adjusting Your Training</div>
+                <div class="card-content">
+                    <p><strong>Heart Rate Monitoring:</strong> Ensure you're working within your target heart rate zone (50-85% of your max HR).</p>
+                    <p><strong>Track Progress:</strong> Log workout duration, intensity, and adjustments based on your fitness goals.</p>
+                </div>
+                <a href="/cardio_monitoring" class="btn-learn">Learn More</a>
+            </div>
+
+            <div class="card">
+                <div class="card-title">Integrating Cardio with Other Workouts</div>
+                <div class="card-content">
+                    <p>Combine cardio with strength training for a balanced routine. Ensure adequate rest between intense sessions.</p>
+                </div>
+                <a href="/cardio_with_other" class="btn-learn">Learn More</a>
+            </div>
+        </div>
+
+        <!-- Button to go back to the Workout Plans page -->
+        <div class="text-center">
+            <a href="/workout_plans" class="btn-back">Back to Workout Plans</a>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment Successful</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background: linear-gradient(to right, #e66465, #9198e5);
+            font-family: Arial, sans-serif;
+        }
+        .container {
+            padding: 2rem;
+            text-align: center;
+        }
+        .success-info {
+            background-color: #fff;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        .btn-home {
+            margin-top: 1.5rem;
+            display: block;
+            padding: 10px 20px;
+            background-color: #e66465;
+            color: white;
+            border-radius: 20px;
+            text-decoration: none;
+            transition: background-color 0.3s ease;
+        }
+        .btn-home:hover {
+            background-color: #ff6f61;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Payment Successful</h1>
+        <div class="success-info">
+            <p>Your payment for the <strong>{{ membership_type }}</strong> membership has been processed successfully.</p>
+            <a href="/" class="btn-home">Back to Membership Plans</a>
+        </div>
+    </div>
+</body>
+</html>

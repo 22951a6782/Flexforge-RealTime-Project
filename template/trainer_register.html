@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trainer Registration</title>
+    <style>
+        /* Body styling with gradient background */
+        body {
+            background: #7F7FD5;  /* fallback for old browsers */
+            background: -webkit-linear-gradient(to right, #91EAE4, #86A8E7, #7F7FD5);  /* Chrome 10-25, Safari 5.1-6 */
+            background: linear-gradient(to right, #91EAE4, #86A8E7, #7F7FD5); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        /* Card styling */
+        .card {
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            width: 100%;
+            max-width: 500px;
+        }
+
+        /* Card title styling */
+        .card-title {
+            margin-bottom: 1.5rem;
+            font-size: 1.8em;
+            color: #333;
+        }
+
+        /* Form group styling */
+        .form-group {
+            margin-bottom: 1.5rem;
+            text-align: left;
+        }
+
+        /* Label styling */
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-size: 1rem;
+            color: #333;
+        }
+
+        /* Input and textarea styling */
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 10px;
+            font-size: 1rem;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            box-sizing: border-box;
+        }
+
+        /* Radio button container styling */
+        .radio-group {
+            display: flex;
+            flex-direction: column;
+            font-size: 10px;
+            text-align: center;
+        }
+
+        .radio-group label {
+            display: flex;
+            align-items: center;
+        }
+
+        .radio-group input[type="radio"] {
+            margin-right: 10px;
+            margin-left: 0; /* Ensures the radio button stays on the left */
+        }
+
+
+        /* Button styling */
+        .btn-primary {
+            background-color: #007bff;
+            border: none;
+            border-radius: 20px;
+            color: white;
+            padding: 10px 20px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            width: 100%;
+        }
+
+        .btn-primary:hover {
+            background-color: #0056b3;
+        }
+
+        /* Text center styling */
+        .text-center p {
+            margin-top: 1rem;
+        }
+
+        /* Link styling */
+        .text-center a {
+            color: #007bff;
+            text-decoration: none;
+        }
+
+        .text-center a:hover {
+            text-decoration: underline;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 767px) {
+            .card {
+                padding: 20px;
+                max-width: 90%;
+            }
+
+            .card-title {
+                font-size: 1.5em;
+            }
+
+            .btn-primary {
+                padding: 8px 16px;
+                font-size: 0.9rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="card">
+        <h2 class="card-title">Trainer Registration</h2>
+        <form action="/trainer_register" method="POST">
+            <div class="form-group">
+                <label for="full_name">Full Name</label>
+                <input type="text" id="full_name" name="full_name" placeholder="Enter your full name" required>
+            </div>
+            <div class="form-group">
+                <label for="email">Email Address</label>
+                <input type="email" id="email" name="email" placeholder="Enter your email" required>
+            </div>
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" placeholder="Enter your password" required>
+            </div>
+            <div class="form-group">
+                <label for="confirm_password">Confirm Password</label>
+                <input type="password" id="confirm_password" name="confirm_password" placeholder="Confirm your password" required>
+            </div>
+            <div class="form-group">
+                <label>Expertise</label>
+                <div class="radio-group">
+                    <label>
+                        <input type="radio" name="expertise" value="strength_training" required>
+                        Strength Training
+                    </label>
+                    <label>
+                        <input type="radio" name="expertise" value="cardiovascular_training" required>
+                        Cardiovascular Training
+                    </label>
+                    <label>
+                        <input type="radio" name="expertise" value="bodybuilding_training" required>
+                        Bodybuilding Training
+                    </label>
+                    <label>
+                        <input type="radio" name="expertise" value="crossfit_training" required>
+                        CrossFit Training
+                    </label>
+                    <label>
+                        <input type="radio" name="expertise" value="olympic_weightlifting" required>
+                        Olympic Weightlifting
+                    </label>
+                    <label>
+                        <input type="radio" name="expertise" value="circuit_training" required>
+                        Circuit Training
+                    </label>
+                    <label>
+                        <input type="radio" name="expertise" value="powerlifting_training" required>
+                        Powerlifting
+                    </label>
+                </div>
+            </div>            
+            <div class="form-group">
+                <label for="certifications">Certifications</label>
+                <textarea id="certifications" name="certifications" placeholder="Enter your certifications" rows="3" required></textarea>
+            </div>
+            <button type="submit" class="btn-primary">Register</button>
+        </form>
+        <div class="text-center">
+            <p>Already have an account? <a href="/trainer_login">Login here</a></p>
+        </div>
+        <div class="text-center mt-4">
+            <a href="/" class="btn btn-secondary" style="background-color: #18dc66; color: white; padding: 9px; border-radius: 5px; text-decoration: none;">Go to Home</a>
+        </div>
+    </div>
+    
+
+</body>
+</html>

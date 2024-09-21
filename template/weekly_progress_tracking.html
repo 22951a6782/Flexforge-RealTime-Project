@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Progress Tracking</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background: linear-gradient(135deg, #ff9a9e 0%, #fad0c4 100%);
+            font-family: 'Arial', sans-serif;
+        }
+
+        .container {
+            background-color: #ffffff;
+            border-radius: 15px;
+            padding: 40px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            margin-top: 50px;
+            animation: fadeIn 1s ease-in-out;
+        }
+
+        h1 {
+            color: #333;
+            text-align: center;
+            margin-bottom: 30px;
+            font-size: 2.5rem;
+            font-weight: 600;
+            animation: slideDown 0.8s ease;
+        }
+
+        label {
+            color: #555;
+            font-weight: 500;
+        }
+
+        input[type="date"],
+        textarea {
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            transition: border-color 0.3s ease;
+        }
+
+        input[type="date"]:focus,
+        textarea:focus {
+            border-color: #ff6b6b;
+            box-shadow: 0 0 5px rgba(255, 107, 107, 0.5);
+        }
+
+        button {
+            background-color: #ff6b6b;
+            border: none;
+            border-radius: 8px;
+            padding: 10px 20px;
+            color: white;
+            font-size: 1.2rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+        }
+
+        button:hover {
+            background-color: #ff3d3d;
+            transform: translateY(-2px);
+        }
+
+        button:active {
+            transform: translateY(1px);
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes slideDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Add subtle animation on form elements */
+        input[type="date"],
+        textarea {
+            animation: fadeIn 0.8s ease-in-out;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 class="my-4">Track Your Weekly Progress</h1>
+        <form method="POST" action="{{ url_for('submit_progress') }}">
+            <div class="mb-3">
+                <label for="progress_date" class="form-label">Date</label>
+                <input type="date" id="progress_date" name="progress_date" class="form-control" required>
+            </div>
+            <div class="mb-3">
+                <label for="workout_details" class="form-label">Workout Details</label>
+                <textarea id="workout_details" name="workout_details" class="form-control" rows="4" required></textarea>
+            </div>
+            <div class="mb-3">
+                <label for="issues" class="form-label">Any Issues</label>
+                <textarea id="issues" name="issues" class="form-control" rows="4"></textarea>
+            </div>
+            <div class="text-center">
+                <button type="submit" class="btn btn-primary">Submit Progress</button>
+            </div>
+        </form>
+    </div>
+    <div class="text-center mt-4">
+        <a href="/dashboard" class="btn btn-secondary" style="background-color: #18dc66;">Go to Home</a>
+    </div>
+</body>
+</html>

@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Designing a Cardio Workout Routine</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, #f2f2f2, #e0e0e0);
+            overflow-x: hidden;
+            color: #333;
+            padding-top: 60px;
+        }
+
+        header {
+            background: linear-gradient(135deg, #ff9800, #ff5722);
+            color: white;
+            padding: 20px;
+            text-align: center;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            transition: top 0.3s ease;
+            z-index: 1000;
+        }
+
+        h1 {
+            margin: 0;
+            font-size: 2em;
+            font-weight: bold;
+        }
+
+        main {
+            padding: 20px;
+        }
+
+        .content-container {
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            transition: transform 0.3s, box-shadow 0.3s, background-color 0.3s, border-left 0.3s;
+            animation: fadeIn 1.5s;
+            border-left: 5px solid transparent;
+        }
+
+        .content-container:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+            background-color: #f5f5f5;
+            border-left: 5px solid #ff9800;
+        }
+
+        footer {
+            background: linear-gradient(135deg, #ff9800, #ff5722);
+            color: white;
+            text-align: center;
+            padding: 20px;
+            margin-top: 20px;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body>
+    <header id="header">
+        <h1>Designing a Cardio Workout Routine</h1>
+    </header>
+
+    <main>
+        <section class="content-container">
+            <h2>Warm-Up</h2>
+            <p>Begin with 5-10 minutes of low-intensity cardio to prepare your body and reduce the risk of injury. This can include brisk walking, slow jogging, or cycling at a low pace.</p>
+        </section>
+
+        <section class="content-container">
+            <h2>Workout Duration</h2>
+            <p>Aim for at least 20-30 minutes of moderate to vigorous cardio exercise. You can break it down into intervals, or maintain a steady pace depending on your fitness goals.</p>
+        </section>
+
+        <section class="content-container">
+            <h2>Intensity Levels</h2>
+            <p>Incorporate different intensity levels, such as:</p>
+            <ul>
+                <li><strong>Steady-state cardio:</strong> Maintaining a consistent pace throughout your workout.</li>
+                <li><strong>Interval training:</strong> Alternating between high-intensity bursts and low-intensity recovery periods.</li>
+            </ul>
+        </section>
+
+        <section class="content-container">
+            <h2>Cool-Down</h2>
+            <p>End with 5-10 minutes of low-intensity cardio and stretching to gradually lower your heart rate and prevent muscle stiffness. Stretch the muscles used in your workout to aid in recovery.</p>
+        </section>
+    </main>
+
+    <script>
+        let lastScrollTop = 0;
+        const header = document.getElementById('header');
+
+        window.addEventListener('scroll', function() {
+            let currentScroll = window.pageYOffset || document.documentElement.scrollTop;
+            if (currentScroll > lastScrollTop) {
+                // Scroll Down
+                header.classList.add('hidden');
+            } else {
+                // Scroll Up
+                header.classList.remove('hidden');
+            }
+            lastScrollTop = currentScroll <= 0 ? 0 : currentScroll;
+        });
+    </script>
+</body>
+</html>

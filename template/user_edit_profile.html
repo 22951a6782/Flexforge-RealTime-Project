@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Profile</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <style>
+        body {
+          background: linear-gradient(135deg, #d3d3d3, #797474);
+          font-family: Arial, sans-serif;
+          min-height: 100vh;
+          margin: 0;
+        }
+
+
+        .edit-profile-container {
+            max-width: 500px;
+            margin: 80px auto;
+            padding: 40px;
+            background-color: white;
+            border-radius: 15px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s ease-in-out;
+        }
+
+        .edit-profile-container:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3);
+        }
+
+        .form-title {
+            text-align: center;
+            margin-bottom: 30px;
+            color: #343a40;
+            font-size: 1.8rem;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .form-control {
+            transition: box-shadow 0.3s ease-in-out;
+        }
+
+        .form-control:hover, .form-control:focus {
+            box-shadow: 0 0 10px rgba(0, 123, 255, 0.5);
+        }
+
+        .btn-primary {
+            width: 100%;
+            margin-top: 20px;
+            background-color: #007bff;
+            border: none;
+            transition: background-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+        }
+
+        .btn-primary:hover {
+            background-color: #0056b3;
+            box-shadow: 0 6px 12px rgba(0, 123, 255, 0.3);
+        }
+
+        .btn-primary:active {
+            background-color: #004085;
+            box-shadow: none;
+        }
+
+        .form-label {
+            color: #495057;
+            font-weight: 500;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="edit-profile-container">
+        <h2 class="form-title">Edit Profile</h2>
+        <form action="{{ url_for('update_profile') }}" method="POST">
+            <!-- Hidden input for user ID -->
+            <input type="hidden" name="user_id" value="{{ user.id }}">
+
+            <div class="mb-3">
+                <label for="name" class="form-label">Name</label>
+                <input type="text" class="form-control" id="name" name="name" value="{{ user.name }}" required>
+            </div>
+
+            <div class="mb-3">
+                <label for="email" class="form-label">Email</label>
+                <input type="email" class="form-control" id="email" name="email" value="{{ user.email }}" required>
+            </div>
+
+            <div class="mb-3">
+                <label for="password" class="form-label">Password</label>
+                <input type="password" class="form-control" id="password" name="password" placeholder="Enter new password">
+            </div>
+
+            <button type="submit" class="btn btn-primary">Save Changes</button>
+        </form>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

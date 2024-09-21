@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration Page</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background: #6396b8; 
+            background: -webkit-linear-gradient(to right, #FFFFFF, #6DD5FA, #2980B9);  
+            background: linear-gradient(to right, #ea9494, #e2a7a2, #f6b0b0); 
+        }
+
+        .maindiv{
+            background: #2980B9; 
+            background: -webkit-linear-gradient(to right, #dc5454, #6DD5FA, #2980B9);  
+            background: linear-gradient(to right, #886262, #444d50, #2980B9); 
+        }
+
+        .quote {
+            padding: 2rem;
+            position: relative;
+            color: white;
+            background-image: url("{{ url_for('static', filename='images/register_img.png') }}"); /* Add your image path */
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            opacity: 0.8; /* Make the image transparent */
+        }
+
+        .quote h2 {
+            font-size: 2rem;
+            color: #070707;
+            z-index: 2;
+            position: relative;
+        }
+
+        .quote p {
+            font-size: 1.2rem;
+            color: white;
+            z-index: 2;
+            position: relative;
+        }
+
+        .registration-card {
+            border-radius: 10px;
+            width: 100%;
+            max-width: 500px;
+        }
+
+        .card-header {
+            border-bottom: 0;
+            border-radius: 10px 10px 0 0;
+        }
+
+        .btn-primary {
+            background-color: #007bff;
+            border: none;
+            border-radius: 20px;
+        }
+
+        .btn-primary:hover {
+            background-color: #0056b3;
+        }
+
+        .quote {
+            padding: 2rem;
+            position: relative;
+            color: rgb(255, 255, 255);
+            background-image: url("{{ url_for('static', filename='images/register_img.png') }}"); /* Add your image path */
+            background-size: cover; /* Ensure the image covers the entire section */
+            background-position: center;
+            background-repeat: no-repeat;
+            opacity: 0.9; /* Adjust opacity to your preference */
+            height: 100vh; /* Adjust this height to fully fit the image */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .quote h2, .quote p {
+            z-index: 2;
+            position: relative;
+        }
+
+        .quote::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0; /* Dark overlay for better readability */
+            z-index: 1;
+        }
+
+        .logo {
+            width: 50px; /* Adjust width to fit your design */
+            height: 50px; /* Maintain aspect ratio */
+            background: transparent;
+            border: none; /* Remove any border */
+        }
+        
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-expand-md navbar-light">
+            <a class="navbar-brand" href="#">
+                <img src="{{ url_for('static', filename='images/gym_logo1.png') }}" alt="Logo" class="logo">
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <span class="navbar-text ml-auto funny-statement text-light">
+                    Welcome to the fun zone
+                </span>
+            </div>
+        </nav>
+    </header>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-6 d-flex align-items-center justify-content-center">
+                <div class="quote">
+                    <h2>Sign up now your future self will thank you.</h2>
+                    <p>Get ready to crush your goals and have fun doing it!</p>
+                </div>
+            </div>
+            <div class="col-md-6 align-items-center justify-content-center">
+                <div class="card registration-card">
+                    <div class="card-header text-center bg-primary text-white">
+                        <h4>Register</h4>
+                    </div>
+                    <div class="card-body">
+                        <form action="/register" method="POST">
+                            <div class="form-group">
+                                <label for="name">Full Name</label>
+                                <input type="text" name="name" class="form-control" id="name" placeholder="Enter your full name" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="email">Email address</label>
+                                <input type="email" name="email" class="form-control" id="email" placeholder="Enter your email" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="password">Password</label>
+                                <input type="password" name="password" class="form-control" id="password" placeholder="Enter your password" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="confirm-password">Confirm Password</label>
+                                <input type="password" name="confirm_password" class="form-control" id="confirm-password" placeholder="Confirm your password" required>
+                            </div>
+                            <button type="submit" class="btn btn-primary btn-block">Register</button>
+                        </form>
+                        <p class="mt-2">Already a member? <a href='/login'>Login Here</a></p>
+                        <div class="text-center mt-4 back">
+                            <a href="/" class="btn btn-secondary">Go to Home</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.0.7/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

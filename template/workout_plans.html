@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Elite Fitness: Modern Workout Plans</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #3498db;
+            --secondary-color: #2ecc71;
+            --text-color: #333;
+            --bg-color: #f4f4f4;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Roboto', sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--bg-color);
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        header {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 1rem 0;
+            position: fixed;
+            width: 100%;
+            z-index: 1000;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+        
+        .nav-links li {
+            margin-left: 20px;
+        }
+        
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: 300;
+            transition: color 0.3s ease;
+        }
+        
+        .nav-links a:hover {
+            color: var(--secondary-color);
+        }
+        
+        .hero {
+            background-image: url('https://source.unsplash.com/1600x900/?fitness');
+            background-size: cover;
+            background-position: center;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            position: relative;
+        }
+        
+        .hero::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+        }
+        
+        .hero-content {
+            z-index: 1;
+        }
+        
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 600px;
+            margin: 0 auto 2rem;
+        }
+        
+        .btn {
+            display: inline-block;
+            background-color: var(--secondary-color);
+            color: white;
+            padding: 0.8rem 1.5rem;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+        
+        .btn:hover {
+            background-color: #27ae60;
+        }
+        
+        .workout-types {
+            padding: 5rem 0;
+        }
+        
+        .workout-types h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+        }
+        
+        .workout-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+        
+        .workout-card {
+            background-color: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+        
+        .workout-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .workout-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+        
+        .workout-card-content {
+            padding: 1.5rem;
+        }
+        
+        .workout-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .workout-card p {
+            margin-bottom: 1rem;
+        }
+        
+        footer {
+            background-color: var(--primary-color);
+            color: white;
+            text-align: center;
+            padding: 1rem 0;
+        }
+    </style>
+</head>
+<body>
+    
+
+    <main>
+        <section id="home" class="hero">
+            <div class="hero-content">
+                <h1>Transform Your Body, Transform Your Life</h1>
+                <p>Discover the perfect workout plan tailored to your fitness goals and lifestyle.</p>
+                <a href="#workout-types" class="btn">Explore Workouts</a>
+            </div>
+        </section>
+
+        <section id="workout-types" class="workout-types">
+            <div class="container">
+                <h2>Discover Your Ideal Workout</h2>
+
+                <div class="workout-grid">
+
+                    <div class="workout-card">
+                        <img src="{{ url_for('static', filename='images/training1.jpg') }}" alt="Strength Training">
+                        <div class="workout-card-content">
+                            <h3>Strength Training</h3>
+                            <p>Strength does not come from winning. Your struggles develop your strengths.</p>
+                            <a href="/training-type1" class="btn">Learn More</a>
+                        </div>
+                    </div>
+
+                    <div class="workout-card">
+                        <img src="{{ url_for('static', filename='images/training2.webp') }}" alt="Cardiovascular Training">
+                        <div class="workout-card-content">
+                            <h3>Cardiovascular Training </h3>
+                            <p>The heart is a muscle, the more you train it, the stronger it becomes.</p>
+                            <a href="/training-type2" class="btn">Learn More</a>
+                        </div>
+                    </div>
+                    <div class="workout-card">
+                        <img src="{{ url_for('static', filename='images/training3.jpg') }}" alt="Bodybuilding Training">
+                        <div class="workout-card-content">
+                            <h3>Bodybuilding Training</h3>
+                            <p>Success isn't always about greatness. It's about consistency.</p>
+                            <a href="/training-type3" class="btn">Learn More</a>
+                        </div>
+                    </div>
+
+                    <div class="workout-card">
+                        <img src="{{ url_for('static', filename='images/training4.jpg') }}" alt="CrossFit Training">
+                        <div class="workout-card-content">
+                            <h3>CrossFit Training</h3>
+                            <p>Train insane or remain the same.</p>
+                            <a href="/training-type4" class="btn">Learn More</a>
+                        </div>
+                    </div>
+                    
+                    <div class="workout-card">
+                        <img src="{{ url_for('static', filename='images/training5.jpg') }}" alt="Olympic Weightlifting ">
+                        <div class="workout-card-content">
+                            <h3>Olympic Weightlifting </h3>
+                            <p>Strength is the product of struggle. Keep fighting.</p>
+                            <a href="/training-type5" class="btn">Learn More</a>
+                        </div>
+                    </div>
+
+                    <div class="workout-card">
+                        <img src="{{ url_for('static', filename='images/training6.jpg') }}" alt="Circuit Training ">
+                        <div class="workout-card-content">
+                            <h3>Circuit Training </h3>
+                            <p>Sweat now, shine later.</p>
+                            <a href="/training-type6" class="btn">Learn More</a>
+                        </div>
+                    </div>
+
+                    <div class="workout-card">
+                        <img src="{{ url_for('static', filename='images/training7.jpg') }}" alt="PowerLifting">
+                        <div class="workout-card-content">
+                            <h3>Powerlifting</h3>
+                            <p>What seems impossible today will one day become your warm-up.</p>
+                            <a href="/training-type7" class="btn">Learn More</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    <a href="/dashboard" class="btn">Back to Home</a>
+
+</body>
+</html>

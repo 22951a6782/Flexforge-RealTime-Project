@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CrossFit Training Guide</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet">
+    <style>
+        body {
+            background: linear-gradient(to right, #FF9800, #FF5722, #FFFFFF);
+            font-family: Arial, sans-serif;
+        }
+        .container {
+            padding: 2rem;
+        }
+        h1 {
+            text-align: center;
+            color: #FFFFFF;
+            margin-bottom: 2rem;
+        }
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+        .card {
+            background-color: #fff;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+        }
+        .card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
+        .card-title {
+            font-size: 1.5rem;
+            color: #FF9800;
+            margin-bottom: 1rem;
+        }
+        .card-content {
+            color: #555;
+        }
+        .btn-learn {
+            margin-top: 1.5rem;
+            display: block;
+            text-align: center;
+            padding: 10px 20px;
+            background-color: #FF9800;
+            color: white;
+            border-radius: 20px;
+            transition: background-color 0.3s ease;
+        }
+        .btn-learn:hover {
+            background-color: #ff5722;
+            text-decoration: none;
+            color: white;
+        }
+        .btn-back {
+            margin-top: 2rem;
+            text-align: center;
+            padding: 10px 30px;
+            background-color: #e67e22;
+            color: #fff;
+            border: none;
+            border-radius: 25px;
+            display: inline-block;
+            transition: background-color 0.3s ease;
+        }
+        .btn-back:hover {
+            background-color: white;
+            color: #e67e22;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>CrossFit Training Guide</h1>
+        <div class="grid-container">
+            <div class="card">
+                <div class="card-title">Understanding CrossFit</div>
+                <div class="card-content">
+                    <p>CrossFit is a high-intensity fitness training program that combines elements of weightlifting, gymnastics, and cardiovascular exercise. The aim is to improve overall fitness through varied, functional movements performed at high intensity.</p>
+                    <p><strong>Core Principles:</strong> Emphasis on functional movements, varied workouts, and scalable exercises suitable for all fitness levels.</p>
+                </div>
+                <a href="/understand_crossfit" class="btn-learn">Learn More</a>
+            </div>
+
+            <div class="card">
+                <div class="card-title">Warm-Up and Mobility</div>
+                <div class="card-content">
+                    <p><strong>Warm-Up:</strong> Begin with 5-10 minutes of dynamic movements such as jogging, jumping jacks, or high knees to increase heart rate and prepare muscles for intense exercise.</p>
+                    <p><strong>Mobility Work:</strong> Perform mobility exercises focusing on key areas like shoulders, hips, and ankles to enhance flexibility and prevent injury. Examples include dynamic stretches and foam rolling.</p>
+                </div>
+                <a href="/warm_up_mobility" class="btn-learn">Learn More</a>
+            </div>
+
+            <div class="card">
+                <div class="card-title">The Workout of the Day (WOD)</div>
+                <div class="card-content">
+                    <p><strong>WOD Structure:</strong> Each day features a different workout, often including a mix of exercises like weightlifting, bodyweight movements, and cardio. WODs are typically time-based or for a specific number of rounds.</p>
+                    <p><strong>Types of Exercises:</strong></p>
+                    <ul>
+                        <li><strong>Weightlifting:</strong> Movements such as deadlifts, squats, and Olympic lifts (e.g., snatch, clean and jerk).</li>
+                        <li><strong>Gymnastics:</strong> Bodyweight exercises like pull-ups, push-ups, and handstands.</li>
+                        <li><strong>Cardio:</strong> High-intensity intervals or long-distance running, rowing, or cycling.</li>
+                    </ul>
+                </div>
+                <a href="/wod_structure" class="btn-learn">Learn More</a>
+            </div>
+
+            <div class="card">
+                <div class="card-title">Cooldown and Recovery</div>
+                <div class="card-content">
+                    <p><strong>Cooldown:</strong> After completing the WOD, spend 5-10 minutes performing low-intensity exercises like walking or light stretching to gradually lower heart rate and aid muscle recovery.</p>
+                    <p><strong>Recovery:</strong> Incorporate stretching or foam rolling to help alleviate muscle soreness and improve flexibility. Ensure adequate hydration and nutrition to support muscle repair.</p>
+                </div>
+                <a href="/cooldown_recovery" class="btn-learn">Learn More</a>
+            </div>
+
+            <div class="card">
+                <div class="card-title">Progress Tracking and Adjustment</div>
+                <div class="card-content">
+                    <p><strong>Track Performance:</strong> Keep a log of WOD results, including times, weights lifted, and personal bests. Track improvements over time to gauge progress.</p>
+                    <p><strong>Adjust Workouts:</strong> Regularly reassess your performance and adjust your training based on goals and progress. Increase intensity, vary exercises, or focus on specific weaknesses as needed.</p>
+                </div>
+                <a href="/progress_tracking4" class="btn-learn">Learn More</a>
+            </div>
+        </div>
+
+        <!-- Button to go back to the Workout Plans page -->
+        <div class="text-center">
+            <a href="/workout_plans" class="btn-back">Back to Workout Plans</a>
+        </div>
+    </div>
+</body>
+</html>

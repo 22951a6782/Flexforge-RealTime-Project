@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UPI Payment</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background: linear-gradient(to right, #e66465, #9198e5);
+            font-family: Arial, sans-serif;
+        }
+        .container {
+            padding: 2rem;
+            max-width: 600px;
+            margin: auto;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            text-align: center;
+            color: #e66465;
+        }
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        .btn-pay {
+            background-color: #e66465;
+            color: white;
+            border-radius: 20px;
+            padding: 10px 20px;
+            text-align: center;
+            transition: background-color 0.3s ease;
+        }
+        .btn-pay:hover {
+            background-color: #9198e5;
+            color: white;
+            text-decoration: none;
+        }
+        .details {
+            margin-bottom: 1.5rem;
+            font-size: 1.2rem;
+            color: #555;
+        }
+        .qr-code {
+            text-align: center;
+            margin-bottom: 1.5rem;
+        }
+        .qr-code img {
+            width: 200px;
+            height: 200px;
+        }
+        .notice {
+            font-size: 1rem;
+            color: #555;
+            text-align: center;
+            margin-top: 1.5rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>UPI Payment</h1>
+        <div class="details">
+            <p><strong>Training Type:</strong> <span id="training_type_display"></span></p>
+            <p><strong>Membership Tier:</strong> <span id="tier_display"></span></p>
+            <p><strong>Price:</strong> ₹<span id="price_display"></span>/month</p>
+        </div>
+
+        <!-- QR Code Scanner -->
+        <div class="qr-code">
+            <p>Scan the QR code below to make a payment</p>
+            <img src="{{ url_for('static', filename='images/scanner2.png') }}" alt="QR Code">
+        </div>
+
+        <form action="/handle_upi_payment" method="post">
+            <input type="hidden" name="training_type" id="training_type">
+            <input type="hidden" name="tier" id="tier">
+            <input type="hidden" name="amount" id="amount">
+            <div class="form-group">
+                <label for="upi_id">UPI ID</label>
+                <input type="text" class="form-control" id="upi_id" name="upi_id" required>
+            </div>
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" class="form-control" id="email" name="email" required>
+            </div>
+            <button type="submit" class="btn-pay">Pay Now</button>
+        </form>
+
+        <div class="notice">
+            <p>After completing the payment, please send a screenshot of the payment to <strong>praneethapuppet1@gmail.com</strong> to receive the benefits of your membership.</p>
+        </div>
+    </div>
+
+    <script>
+        function getQueryParameter(name) {
+            const urlParams = new URLSearchParams(window.location.search);
+            return urlParams.get(name);
+        }
+
+        const trainingType = getQueryParameter('training_type');
+        const tier = getQueryParameter('tier');
+        const price = getQueryParameter('price');
+
+        document.getElementById('training_type').value = trainingType;
+        document.getElementById('tier').value = tier;
+        document.getElementById('amount').value = price;
+
+        document.getElementById('training_type_display').textContent = trainingType;
+        document.getElementById('tier_display').textContent = tier;
+        document.getElementById('price_display').textContent = price;
+    </script>
+</body>
+</html>

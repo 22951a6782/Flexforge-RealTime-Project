@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nutrition Plans</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(to right, #f0f4f8, #ffffff);
+            margin: 0;
+            padding: 0;
+            color: #333;
+        }
+        header {
+            background: #333;
+            color: #fff;
+            padding: 1rem;
+            text-align: center;
+        }
+        .container {
+            width: 90%;
+            margin: auto;
+            overflow: hidden;
+            padding: 2rem 0;
+        }
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+        }
+        .card {
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            position: relative;
+        }
+        .card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
+        .card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to right, #4dd0e1, #a7ffeb); /* Teal to light green gradient */
+            opacity: 0.2;
+            z-index: 0;
+            transition: opacity 0.3s ease;
+        }
+        .card:hover::before {
+            opacity: 0.4;
+        }
+        .card:nth-child(even)::before {
+            background: linear-gradient(to right, #ab47bc, #f48fb1); /* Purple to light pink gradient */
+        }
+        .card-content {
+            position: relative;
+            padding: 1rem;
+            z-index: 1;
+        }
+        .card-content h3 {
+            margin: 0;
+            font-size: 1.25rem;
+            color: #333;
+        }
+        .card-content p {
+            margin: 0.5rem 0;
+            color: #666;
+        }
+        .btn {
+            display: inline-block;
+            padding: 0.5rem 1rem;
+            margin-top: 1rem;
+            background: #333;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 4px;
+            transition: background-color 0.3s ease;
+        }
+        .btn:hover {
+            background-color: #555;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Nutrition Plans</h1>
+    </header>
+    <div class="container">
+        <div class="grid">
+            <div class="card">
+                <div class="card-content">
+                    <h3>Weekly Nutrition Plan for Strength Training</h3>
+                    <p>Discover a balanced diet to enhance your strength training results.</p>
+                    <a href="/nutrition_plan1" class="btn">Learn More</a>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-content">
+                    <h3>Weekly Nutritional Diet for Cardiovascular Training</h3>
+                    <p>Optimize your cardiovascular workouts with the right nutrition.</p>
+                    <a href="/nutrition_plan2" class="btn">Learn More</a>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-content">
+                    <h3>Weekly Nutrition Plan for Bodybuilding Training</h3>
+                    <p>Boost your bodybuilding efforts with a specialized nutrition plan.</p>
+                    <a href="/nutrition_plan3" class="btn">Learn More</a>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-content">
+                    <h3>Weekly Nutritional Diet Guide for CrossFit Training</h3>
+                    <p>Fuel your CrossFit workouts with the best nutritional practices.</p>
+                    <a href="/nutrition_plan4" class="btn">Learn More</a>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-content">
+                    <h3>Olympic Weightlifting Weekly Nutrition Guide</h3>
+                    <p>Get the right nutrients for peak performance in Olympic weightlifting.</p>
+                    <a href="/nutrition_plan5" class="btn">Learn More</a>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-content">
+                    <h3>Weekly Nutrition Plan for Circuit Training</h3>
+                    <p>Enhance your circuit training routine with a tailored nutrition plan.</p>
+                    <a href="/nutrition_plan6" class="btn">Learn More</a>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-content">
+                    <h3>Powerlifting Overview</h3>
+                    <p>Understand the nutritional needs for effective powerlifting.</p>
+                    <a href="/nutrition_plan7" class="btn">Learn More</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="text-center mt-4">
+        <a href="/dashboard" class="btn btn-secondary" style="background-color: #18dc66;">Go to Home</a>
+    </div>
+</body>
+</html>

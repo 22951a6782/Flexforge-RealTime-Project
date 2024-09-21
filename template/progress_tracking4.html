@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Progress Tracking and Adjustment</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet">
+    <style>
+        body {
+            background: linear-gradient(to right, #FF9800, #FF5722, #FFFFFF);
+            font-family: Arial, sans-serif;
+        }
+        .container {
+            padding: 2rem;
+        }
+        h1 {
+            text-align: center;
+            color: #FFFFFF;
+            margin-bottom: 2rem;
+        }
+        .content-section {
+            background: #fff;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+            margin-bottom: 2rem;
+        }
+        .content-section:hover {
+            transform: scale(1.03);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
+        .section-title {
+            font-size: 1.8rem;
+            color: #FF9800;
+            margin-bottom: 1rem;
+        }
+        .section-content {
+            color: #555;
+        }
+        .btn-learn {
+            display: block;
+            text-align: center;
+            padding: 10px 20px;
+            background-color: #FF9800;
+            color: white;
+            border-radius: 20px;
+            transition: background-color 0.3s ease;
+            margin-top: 1rem;
+        }
+        .btn-learn:hover {
+            background-color: #ff5722;
+            color: white;
+            text-decoration: none;
+        }
+        .btn-back {
+            display: inline-block;
+            padding: 10px 30px;
+            background-color: #e67e22;
+            color: #fff;
+            border: none;
+            border-radius: 25px;
+            transition: background-color 0.3s ease;
+            text-align: center;
+            text-decoration: none;
+            margin-top: 2rem;
+        }
+        .btn-back:hover {
+            background-color: white;
+            color: #e67e22;
+            text-decoration: none;
+        }
+        .fade-in {
+            animation: fadeIn 1.5s ease-in-out;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Progress Tracking and Adjustment</h1>
+        
+        <div class="content-section fade-in">
+            <div class="section-title">Tracking Your Performance</div>
+            <div class="section-content">
+                <p>Regular tracking of your CrossFit workouts is essential for evaluating progress and making necessary adjustments. Keep a detailed log of each Workout of the Day (WOD), including:</p>
+                <ul>
+                    <li><strong>Times:</strong> Record your completion times for time-based WODs.</li>
+                    <li><strong>Weights:</strong> Note the weights used for weightlifting exercises.</li>
+                    <li><strong>Repetitions and Rounds:</strong> Track the number of repetitions or rounds completed.</li>
+                    <li><strong>Personal Bests:</strong> Record any new personal records achieved during workouts.</li>
+                </ul>
+                <p>Utilize apps or spreadsheets to systematically track these metrics for better visibility and analysis.</p>
+            </div>
+        </div>
+        
+        <div class="content-section fade-in">
+            <div class="section-title">Adjusting Your Workouts</div>
+            <div class="section-content">
+                <p>Based on the data collected from your performance tracking, make informed adjustments to your workouts to continue progressing:</p>
+                <ul>
+                    <li><strong>Increase Intensity:</strong> Gradually increase weights or workout intensity to challenge your body further.</li>
+                    <li><strong>Vary Exercises:</strong> Introduce new exercises or modify existing ones to prevent plateaus and keep workouts engaging.</li>
+                    <li><strong>Focus on Weaknesses:</strong> Target areas where you may need improvement or where you have not been performing as well.</li>
+                    <li><strong>Rest and Recovery:</strong> Ensure proper rest and recovery times between intense sessions to avoid overtraining and reduce injury risk.</li>
+                </ul>
+                <p>Regular reassessment and adjustments ensure that your CrossFit routine remains effective and aligned with your fitness goals.</p>
+            </div>
+        </div>
+
+        <!-- Button to go back to the Workout Plans page -->
+        <div class="text-center">
+            <a href="/workout_plans" class="btn-back">Back to Workout Plans</a>
+        </div>
+    </div>
+</body>
+</html>

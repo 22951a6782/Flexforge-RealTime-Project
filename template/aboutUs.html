@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - FitLife Gym</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #3498db;
+            --secondary-color: #2ecc71;
+            --accent-color: #e74c3c;
+            --text-color: #333;
+            --bg-color: #f8f9fa;
+            --light-color: #ecf0f1;
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            background: linear-gradient(135deg, #3498db, #2ecc71); /* Gradient Background */
+            color: var(--text-color);
+            overflow-x: hidden;
+        }
+
+        /* About Section */
+        .about-section {
+            padding: 100px 0;
+            background-color: var(--primary-color);
+            color: #fff;
+            animation: fadeIn 1s ease-in-out;
+        }
+
+        .about-title {
+            font-size: 3rem;
+            margin-bottom: 30px;
+            text-align: center;
+            color: #fff;
+            animation: slideInDown 1s ease;
+        }
+
+        .about-text {
+            font-size: 1.2rem;
+            line-height: 1.8;
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+            animation: fadeInText 1.5s ease;
+        }
+
+        .about-icons i {
+            font-size: 2rem;
+            color: var(--accent-color);
+            transition: transform 0.3s ease;
+        }
+
+        .about-icons i:hover {
+            transform: scale(1.3);
+        }
+
+        /* New Feature Section */
+        .feature-icon {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            color: var(--secondary-color);
+            transition: color 0.3s ease, transform 0.3s ease;
+        }
+
+        .feature-icon:hover {
+            color: var(--accent-color);
+            transform: rotate(15deg);
+        }
+
+        .feature-section {
+            padding: 100px 0;
+            background-color: var(--light-color);
+        }
+
+        .feature-section .row {
+            justify-content: center;
+        }
+
+        /* Gym Values Section */
+        .values-section {
+            padding: 80px 0;
+            background: var(--secondary-color);
+            color: #fff;
+        }
+
+        .values-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 50px;
+            animation: slideInUp 1.5s ease;
+        }
+
+        .value-card {
+            background: var(--primary-color);
+            border-radius: 8px;
+            padding: 20px;
+            color: #fff;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .value-card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes slideInDown {
+            from { transform: translateY(-100%); }
+            to { transform: translateY(0); }
+        }
+
+        @keyframes fadeInText {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes slideInUp {
+            from { transform: translateY(100%); }
+            to { transform: translateY(0); }
+        }
+    </style>
+</head>
+<body>
+
+<!-- About Section -->
+<div class="about-section text-center">
+    <h1 class="about-title">About SPN Gym</h1>
+    <p class="about-text">
+        At SPN Gym, we believe in more than just working out—we believe in building a fitness community. Our team of certified experts provides top-notch fitness training to help you achieve your fitness goals. Whether you're a beginner or a pro, we have the right resources for you.
+        <br><br>
+        We offer customized workout plans, nutritional guidance, and state-of-the-art equipment. We take pride in our dedication to customer satisfaction, ensuring each member is treated with respect and care.
+    </p>
+</div>
+
+<!-- Feature Section -->
+<div class="feature-section text-center">
+    <div class="row mt-5">
+        <div class="col-md-4">
+            <i class="fas fa-dumbbell feature-icon"></i>
+            <h3>Cutting-edge Equipment</h3>
+            <p>Our gym is equipped with the latest machines to ensure you get the best workout experience possible.</p>
+        </div>
+        <div class="col-md-4">
+            <i class="fas fa-user-friends feature-icon"></i>
+            <h3>Professional Trainers</h3>
+            <p>Our certified trainers help you develop a workout plan tailored to your goals and fitness level.</p>
+        </div>
+        <div class="col-md-4">
+            <i class="fas fa-heartbeat feature-icon"></i>
+            <h3>Holistic Approach</h3>
+            <p>We focus on overall wellness, combining fitness with mental well-being and nutritional guidance.</p>
+        </div>
+    </div>
+</div>
+
+<!-- Gym Values Section -->
+<div class="values-section text-center">
+    <h2 class="values-title">Our Values</h2>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4">
+                <div class="value-card">
+                    <h4>Commitment</h4>
+                    <p>We are committed to helping you achieve your fitness goals with dedication and passion.</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="value-card">
+                    <h4>Innovation</h4>
+                    <p>Our gym constantly evolves with the latest trends and technology in the fitness world.</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="value-card">
+                    <h4>Community</h4>
+                    <p>We foster a supportive community where members encourage and motivate each other.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

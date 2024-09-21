@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Choosing the Right Cardio Equipment</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, #f2f2f2, #e0e0e0);
+            overflow-x: hidden;
+            color: #333;
+            padding-top: 60px; /* Adjust based on header height */
+        }
+
+        header {
+            background: linear-gradient(135deg, #ff9800, #ff5722);
+            color: white;
+            padding: 20px;
+            text-align: center;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            transition: top 0.3s ease;
+            z-index: 1000;
+        }
+
+        h1 {
+            margin: 0;
+            font-size: 2em;
+            font-weight: bold;
+        }
+
+        main {
+            padding: 20px;
+        }
+
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+
+        .grid-item {
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            transition: transform 0.3s, box-shadow 0.3s, background-color 0.3s, border-left 0.3s;
+            animation: fadeIn 1.5s;
+            border-left: 5px solid transparent;
+        }
+
+        .grid-item:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+            background-color: #f5f5f5;
+            border-left: 5px solid #ff9800;
+        }
+
+        footer {
+            background: linear-gradient(135deg, #ff9800, #ff5722);
+            color: white;
+            text-align: center;
+            padding: 20px;
+            position: relative;
+            margin-top: 20px;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Hide header on scroll down, show on scroll up */
+        .hidden {
+            top: -60px; /* Adjust based on header height */
+        }
+    </style>
+</head>
+<body>
+    <header id="header">
+        <h1>Choosing the Right Cardio Equipment</h1>
+    </header>
+    <main>
+        <section class="grid-container">
+            <div class="grid-item">
+                <h2>1. Treadmill</h2>
+                <p>A treadmill allows for walking, jogging, and running with customizable speed and incline settings. It's great for simulating outdoor terrain while indoors.</p>
+                <p><strong>Benefits:</strong> Improves cardiovascular health, burns calories, and helps in endurance training.</p>
+            </div>
+            <div class="grid-item">
+                <h2>2. Elliptical Trainer</h2>
+                <p>The elliptical trainer provides a low-impact workout, mimicking the motion of running while reducing the strain on your joints.</p>
+                <p><strong>Benefits:</strong> Great for full-body cardio, joint protection, and overall fitness improvement.</p>
+            </div>
+            <div class="grid-item">
+                <h2>3. Stationary Bike</h2>
+                <p>The stationary bike focuses on lower-body strength and endurance by allowing you to pedal at various resistance levels.</p>
+                <p><strong>Benefits:</strong> Enhances leg strength, improves cardiovascular endurance, and is a low-impact alternative to running.</p>
+            </div>
+            <div class="grid-item">
+                <h2>4. Rowing Machine</h2>
+                <p>The rowing machine offers a full-body workout by engaging both upper and lower body muscles in a single motion.</p>
+                <p><strong>Benefits:</strong> Builds strength, endurance, and improves cardiovascular fitness.</p>
+            </div>
+            <div class="grid-item">
+                <h2>5. Stair Climber</h2>
+                <p>The stair climber simulates stair climbing and provides a challenging workout that targets the lower body and improves cardiovascular endurance.</p>
+                <p><strong>Benefits:</strong> Strengthens the legs, glutes, and core while improving endurance.</p>
+            </div>
+        </section>
+    </main>
+    <script>
+        let lastScrollTop = 0;
+        const header = document.getElementById('header');
+
+        window.addEventListener('scroll', function() {
+            let currentScroll = window.pageYOffset || document.documentElement.scrollTop;
+            if (currentScroll > lastScrollTop) {
+                // Scroll Down
+                header.classList.add('hidden');
+            } else {
+                // Scroll Up
+                header.classList.remove('hidden');
+            }
+            lastScrollTop = currentScroll <= 0 ? 0 : currentScroll; // For Mobile or negative scrolling
+        });
+    </script>
+</body>
+</html>
