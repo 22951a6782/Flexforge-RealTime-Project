@@ -19,7 +19,7 @@ Welcome to **Flex Forge!** This platform offers a range of fitness services, inc
 
 
 ## Demo
-You can view the static version of the FlexForge project here - Website
+You can view the static version of the FlexForge project here - `Website`
 
 ## Project Structure
 Here is an overview of the project structure with links to key files and directories:
