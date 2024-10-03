@@ -24,10 +24,13 @@ Explore the static version of the **Flexforge** gym portal to get a preview of t
 [Click here to view the static version](https://22951a6782.github.io/Flexforge-static-Project/) 
 
 
-## Video Demo
-Watch the full walkthrough of the **Flexforge** gym portal in action! The video demo showcases key features such as member registration, trainer assignment, membership payment process, and member progress tracking. This demo provides a clear understanding of how to navigate the platform, highlighting the user experience for both gym members and trainers.
 
-[Click here to watch the video demo](https://www.youtube.com/watch?v=Mn0E2yc4wpA&t=1s)
+## Video Demo
+
+Watch the full walkthrough of the **Flexforge** gym portal in action! The video demo showcases key features such as member registration, trainer assignment, membership payment process, member progress tracking, and more. This demo provides a clear understanding of how to navigate the platform, highlighting the user experience for both gym members and trainers.
+
+[![Flexforge Video Demo](https://img.youtube.com/vi/Mn0E2yc4wpA/0.jpg)](https://www.youtube.com/watch?v=Mn0E2yc4wpA&t=1s)
+
 
 
 ## Medium Article
