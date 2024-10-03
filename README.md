@@ -52,7 +52,7 @@ A list of the Python dependencies needed to run the project locally.
 ##### `LICENSE`
 The license under which this project is released.
 
-##### `README.md`
+##### `[README.md]`(https://github.com/22951a6782/Flexforge-RealTime-Project/blob/main/README.md)
 The current project documentation.
 
 
@@ -278,10 +278,10 @@ These validation methods ensure the documentation is accurate and user-friendly.
 
 ## License
 
-This project is licensed under the MIT License. See the `License` file for details.
+This project is licensed under the MIT License. See the [License](https://github.com/22951a6782/Flexforge-RealTime-Project/blob/main/LICENSE) file for details.
 
 ## Contact
 
 For further information or queries, please reach out via email at [peralapranitha17@gmail.com](mailto:peralapranitha17@gmail.com).  
-Feel free to connect with me on LinkedIn - [LinkedIn](https://www.linkedin.com).
+Feel free to connect with me on LinkedIn - [LinkedIn](https://tinyurl.com/Linkedin-Pranitha-Perala).
 
