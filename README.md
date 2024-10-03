@@ -19,40 +19,40 @@ Welcome to **Flex Forge!** This platform offers a range of fitness services, inc
 
 
 ## Demo
-You can view the static version of the FlexForge project here - `Website`
+You can view the static version of the FlexForge project here - [Website](https://22951a6782.github.io/Flexforge-static-Project/)
 
 ## Project Structure
 Here is an overview of the project structure with links to key files and directories:
 
-##### `static/`
+##### [static/](https://github.com/22951a6782/Flexforge-RealTime-Project/tree/main/static)
 Contains static assets such as images used throughout the website.
-- ##### `images/`  
+- ##### [images/](https://github.com/22951a6782/Flexforge-RealTime-Project/tree/main/static/images)
   This folder holds images for various services, such as workout types, feedback emojis, and home page images, etc.
 
-##### `templates/`
+##### [templates/](https://github.com/22951a6782/Flexforge-RealTime-Project/tree/main/template)
 Contains the HTML templates for different pages of the web application.
-- ##### `home.html`  
+- ##### [home.html](https://github.com/22951a6782/Flexforge-RealTime-Project/blob/main/template/home.html)
   The main landing page highlights key sections such as **Contact**, **Blog**, **About**, **Trainer/Member**, and **Membership Plans**, providing a seamless way to explore services and connect with the FlexForge community.
 
-##### `flaskCode.py`
+##### [flaskCode.py](https://github.com/22951a6782/Flexforge-RealTime-Project/blob/main/flaskCode.py)
 The main Python script is responsible for handling **membership requests**, **trainer sessions**, and the **routing logic** for managing trainers, members, and membership plans on the FlexForge gym portal.
 
-##### `Code Documentation.pdf`
+##### [Code Documentation.pdf](https://github.com/22951a6782/Flexforge-RealTime-Project/blob/main/Code%20Documentation.pdf)
 Documentation covering the routing and Flask backend implementation.
 
-##### `Database MySQL Queries.pdf`
+##### [Database MySQL Queries.pdf](https://github.com/22951a6782/Flexforge-RealTime-Project/blob/main/Database%20MySQL%20Queries.pdf)
 A PDF containing the MySQL queries used to set up and manage the database for **members**, **trainers**, **progress reports**, and **membership plans**.
 
-##### `Libraries and Modules.pdf`
+##### [Libraries and Modules.pdf](https://github.com/22951a6782/Flexforge-RealTime-Project/blob/main/Libraries%20and%20Modules.pdf)
 A PDF containing detailed descriptions and the purpose of libraries and modules used during the course of the project.
 
-##### `requirements.txt`
+##### [requirements.txt](https://github.com/22951a6782/Flexforge-RealTime-Project/blob/main/requirements.pdf)
 A list of the Python dependencies needed to run the project locally.
 
-##### `LICENSE`
+##### [LICENSE](https://github.com/22951a6782/Flexforge-RealTime-Project/blob/main/LICENSE)
 The license under which this project is released.
 
-##### [`README.md`](https://github.com/22951a6782/Flexforge-RealTime-Project/blob/main/README.md)
+##### [README.md](https://github.com/22951a6782/Flexforge-RealTime-Project/blob/main/README.md)
 The current project documentation.
 
 
