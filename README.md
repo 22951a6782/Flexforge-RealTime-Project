@@ -52,7 +52,7 @@ A list of the Python dependencies needed to run the project locally.
 ##### `LICENSE`
 The license under which this project is released.
 
-##### [README.md](https://github.com/22951a6782/Flexforge-RealTime-Project/blob/main/README.md)
+##### [`README.md`](https://github.com/22951a6782/Flexforge-RealTime-Project/blob/main/README.md)
 The current project documentation.
 
 
