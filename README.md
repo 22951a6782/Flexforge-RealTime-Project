@@ -264,7 +264,7 @@ To run this project locally, follow these steps:
 
 - **Frontend**: HTML5, CSS3, JavaScript, Tailwind CSS for responsive and modern design.
 - **Backend**: Python, Flask for routing and form handling.
-- **Database**: Managed using MySQL queries, detailed in **Flexforge Project Database MySQL Queries.pdf**.
+- **Database**: Managed using MySQL queries, detailed in [*Flexforge Project Database MySQL Queries.pdf*](https://github.com/22951a6782/Flexforge-RealTime-Project/blob/main/Database%20MySQL%20Queries.pdf).
 - **Deployment**: The project is hosted on GitHub for static files.
 
 ## Code Documentation
@@ -273,7 +273,7 @@ To run this project locally, follow these steps:
 2. **Module Explanations**: This document provides detailed explanations of key modules, functions, and classes, outlining their specific purposes.
 3. **API Details**: Includes information on public APIs with usage instructions, parameters, and return values.
 4. **Comments and Best Practices**: The code is organized with clear comments and follows best practices for maintainability and ease of navigation.
-5. **Access**: You can access the full documentation in the `Code Documentation.pdf`.
+5. **Access**: You can access the full documentation in the [Code Documentation.pdf](https://github.com/22951a6782/Flexforge-RealTime-Project/blob/main/Code%20Documentation.pdf).
 
 ## Documentation Validation
 
