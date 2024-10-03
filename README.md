@@ -29,28 +29,28 @@ Contains static assets such as images used throughout the website.
 - **images/**  
   This folder holds images for various services, such as workout types, feedback emojis, and home page images, etc.
 
-### `templates/`
+##### `templates/`
 Contains the HTML templates for different pages of the web application.
 - **home.html**  
   The main landing page highlights key sections such as **Contact**, **Blog**, **About**, **Trainer/Member**, and **Membership Plans**, providing a seamless way to explore services and connect with the FlexForge community.
 
-### `flaskCode.py`
+##### `flaskCode.py`
 The main Python script is responsible for handling **membership requests**, **trainer sessions**, and the **routing logic** for managing trainers, members, and membership plans on the FlexForge gym portal.
 
-### `Code Documentation.pdf`
+##### `Code Documentation.pdf`
 Documentation covering the routing and Flask backend implementation.
 
-### `Database MySQL Queries.pdf`
+##### `Database MySQL Queries.pdf`
 A PDF containing the MySQL queries used to set up and manage the database for **members**, **trainers**, **progress reports**, and **membership plans**.
 
-### `Libraries and Modules.pdf`
+##### `Libraries and Modules.pdf`
 A PDF containing detailed descriptions and the purpose of libraries and modules used during the course of the project.
 
-### `requirements.txt`
+##### `requirements.txt`
 A list of the Python dependencies needed to run the project locally.
 
-### `LICENSE`
+##### `LICENSE`
 The license under which this project is released.
 
-### `README.md`
+##### `README.md`
 The current project documentation.
