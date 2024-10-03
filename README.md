@@ -24,7 +24,7 @@ You can view the static version of the FlexForge project here - Website
 ## Project Structure
 Here is an overview of the project structure with links to key files and directories:
 
-### `static/`
+##### `static/`
 Contains static assets such as images used throughout the website.
 - **images/**  
   This folder holds images for various services, such as workout types, feedback emojis, and home page images, etc.
