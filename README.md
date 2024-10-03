@@ -18,36 +18,36 @@ Welcome to **Flex Forge!** This platform offers a range of fitness services, inc
 
 
 
-
 ## Demo
-You can view the static version of the **FlexForge** project here: [Website](#)
+You can view the static version of the FlexForge project here - Website
 
 ## Project Structure
-
 Here is an overview of the project structure with links to key files and directories:
 
 ### `static/`
 Contains static assets such as images used throughout the website.
-- **images/**: This folder holds images for various services, such as workout types, feedback emojis, and homepage images.
+- **images/**  
+  This folder holds images for various services, such as workout types, feedback emojis, and home page images, etc.
 
 ### `templates/`
 Contains the HTML templates for different pages of the web application.
-- **home.html**: The main landing page, highlighting key sections such as **Contact**, **Blog**, **About**, **Trainer/Member**, and **Membership Plans**, providing a seamless way to explore services and connect with the **FlexForge** community.
+- **home.html**  
+  The main landing page highlights key sections such as **Contact**, **Blog**, **About**, **Trainer/Member**, and **Membership Plans**, providing a seamless way to explore services and connect with the FlexForge community.
 
 ### `flaskCode.py`
-The main Python script responsible for handling **membership requests**, **trainer sessions**, and the **routing logic** for managing trainers, members, and membership plans.
+The main Python script is responsible for handling **membership requests**, **trainer sessions**, and the **routing logic** for managing trainers, members, and membership plans on the FlexForge gym portal.
 
 ### `Code Documentation.pdf`
-Comprehensive documentation covering the **routing** and **Flask backend** implementation.
+Documentation covering the routing and Flask backend implementation.
 
 ### `Database MySQL Queries.pdf`
 A PDF containing the MySQL queries used to set up and manage the database for **members**, **trainers**, **progress reports**, and **membership plans**.
 
 ### `Libraries and Modules.pdf`
-A PDF detailing the **libraries** and **modules** used in the project, along with their purposes.
+A PDF containing detailed descriptions and the purpose of libraries and modules used during the course of the project.
 
 ### `requirements.txt`
-A list of the Python dependencies required to run the project locally.
+A list of the Python dependencies needed to run the project locally.
 
 ### `LICENSE`
 The license under which this project is released.
