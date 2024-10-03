@@ -19,28 +19,24 @@ Welcome to **Flex Forge!** This platform offers a range of fitness services, inc
 
 
 ## Static Version
----
 Explore the static version of the **Flexforge** gym portal to get a preview of the user interface and features without backend functionality. This version highlights the design, structure, and layout of the platform, showcasing key sections such as the home page, membership plans, trainer profiles, and contact information.
 
 [Click here to view the static version](https://22951a6782.github.io/Flexforge-static-Project/) 
 
 
 ## Video Demo
----
 Watch the full walkthrough of the **Flexforge** gym portal in action! The video demo showcases key features such as member registration, trainer assignment, membership payment process, and member progress tracking. This demo provides a clear understanding of how to navigate the platform, highlighting the user experience for both gym members and trainers.
 
 [Click here to watch the video demo](https://www.youtube.com/watch?v=Mn0E2yc4wpA&t=1s)
 
 
 ## Medium Article
----
 For a detailed overview of the development process and key insights from building the **Flexforge** gym portal, check out our in-depth article on Medium. The article covers the project’s architecture, technology stack, and design principles, offering valuable tips for developers interested in building similar platforms.
 
 [Read the full article on Medium](https://medium.com/@peralapranitha17/revolutionizing-fitness-introducing-flexforge-your-real-time-gym-portal-cdc7aae1832b) 
 
 
 ## Project Structure
----
 Here is an overview of the project structure with links to key files and directories:
 
 ##### [static/](https://github.com/22951a6782/Flexforge-RealTime-Project/tree/main/static)
