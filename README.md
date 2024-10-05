@@ -301,5 +301,5 @@ This project is licensed under the MIT License. See the [License](https://github
 ## Contact
 
 For further information or queries, please reach out via email at [peralapranitha17@gmail.com](mailto:peralapranitha17@gmail.com).  
-Feel free to connect with me on LinkedIn - [LinkedIn](https://tinyurl.com/Linkedin-Pranitha-Perala).
+Feel free to connect with me on LinkedIn - [LinkedIn](https://www.linkedin.com/in/pranitha-perala-400670317/).
 
